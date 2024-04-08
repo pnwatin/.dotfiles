@@ -1,0 +1,6 @@
+{
+  "keyMappings": "map <C-,> previousTab\nmap <C-.> nextTab\nmap <C-x> removeTab",
+  "settingsVersion": "2.1.2",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: #11111b;\nborder: 1px solid #313244;\nborder-radius: 4px;\npadding: 2px;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: #fab387;\nfont-weight: 400;\nfont-size: 14px;\nfont-family: 'JetBrainsMono Nerd Font Mono';\ntext-shadow: none;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}",
+  "exclusionRules": []
+}
