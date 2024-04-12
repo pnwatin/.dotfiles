@@ -1,0 +1,12 @@
+[user]
+	name = Pierre-Nicolas Watin-Augouard
+	email = pnwa@icloud.com
+	signingkey = /Users/nico/.ssh/id_ed25519.pub
+[init]
+	defaultBranch = main
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[submodule]
+	recurse = true
