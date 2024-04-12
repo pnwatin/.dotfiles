@@ -3,7 +3,7 @@ export PROMPT_EOL_MARK=''
 export EDITOR='nvim'
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
 
-plugins=(git z zsh-autosuggestions vi-mode zsh-syntax-highlighting git-auto-fetch)
+plugins=(git zsh-autosuggestions vi-mode zsh-syntax-highlighting git-auto-fetch)
 
 source $ZSH/oh-my-zsh.sh
 
