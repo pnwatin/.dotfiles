@@ -35,6 +35,15 @@ RPROMPT=''
 alias gg='lazygit'
 alias ls='lsd'
 alias ghv="gh repo view --web --branch $(git rev-parse --abbrev-ref HEAD)"
+alias vim="nvim"
+
+nvim() {
+    if [ $# -eq 0 ]; then
+        command nvim .
+    else
+        command nvim "$@"
+    fi
+}
 
 # functions
 dstart() {
