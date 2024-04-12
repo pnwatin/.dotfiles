@@ -3,12 +3,11 @@ export PROMPT_EOL_MARK=''
 export EDITOR='nvim'
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
 
-plugins=(git zsh-autosuggestions vi-mode zsh-syntax-highlighting git-auto-fetch)
+plugins=(git z zsh-autosuggestions vi-mode zsh-syntax-highlighting git-auto-fetch)
 
 source $ZSH/oh-my-zsh.sh
 
-# prompt
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=false
 VI_MODE_SET_CURSOR=true
 VI_MODE_CURSOR_NORMAL=2
 VI_MODE_CURSOR_VISUAL=4
@@ -31,11 +30,13 @@ PROMPT='$(directory) $(git_prompt_info) $(git_prompt_status)
 %B$(vi_mode_prompt_info)❯%f%b '
 RPROMPT=''
 
-# aliases
 alias gg='lazygit'
 alias ls='lsd'
-alias ghv="gh repo view --web --branch $(git rev-parse --abbrev-ref HEAD)"
 alias vim="nvim"
+
+ghv() {
+  gh repo view --web --branch $(git rev-parse --abbrev-ref HEAD)
+}
 
 nvim() {
     if [ $# -eq 0 ]; then
@@ -45,7 +46,6 @@ nvim() {
     fi
 }
 
-# functions
 dstart() {
     open -a Docker -j
 }
@@ -67,9 +67,7 @@ vim-ctrl-z () {
 zle -N vim-ctrl-z
 
 
-# keymaps
 bindkey "^Z" vim-ctrl-z 
 bindkey "^E" end-of-line       
 bindkey "^ " autosuggest-accept
-KEYTIMEOUT=1
-
+KEYTIMEOUT=0
