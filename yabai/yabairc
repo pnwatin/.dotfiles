@@ -4,18 +4,18 @@ yabai -m config layout bsp
 # new window spawns to the right if vertical split, or bottom if horizontal split
 yabai -m config window_placement second_child
 
-# padding set to 6px
-yabai -m config top_padding 6
-yabai -m config bottom_padding 6
-yabai -m config left_padding 6
-yabai -m config right_padding 6
-yabai -m config window_gap 6
+# padding set to 10px
+yabai -m config top_padding 10
+yabai -m config bottom_padding 10
+yabai -m config left_padding 10
+yabai -m config right_padding 10
+yabai -m config window_gap 10
 
 # # set focus follows mouse mode (default: off, options: off, autoraise, autofocus)
-# yabai -m config focus_follows_mouse autoraise
+yabai -m config focus_follows_mouse autofocus
 
 # center mouse on window with focus
-# yabai -m config mouse_follows_focus on
+yabai -m config mouse_follows_focus on
 
 # modifier for clicking and dragging with mouse
 yabai -m config mouse_modifier ctrl
@@ -35,4 +35,4 @@ yabai -m mouse_drop_action swap
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 
-borders active_color=0xffa6e3a1 inactive_color=0xff313266 width=5.0 &
+borders active_color=0xffa10e3a1 inactive_color=0xff313266 width=5.0 &
