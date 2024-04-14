@@ -7,18 +7,19 @@ plugins=(git z zsh-autosuggestions vi-mode zsh-syntax-highlighting git-auto-fetc
 
 source $ZSH/oh-my-zsh.sh
 
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=false
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
 VI_MODE_CURSOR_NORMAL=2
 VI_MODE_CURSOR_VISUAL=4
 VI_MODE_CURSOR_INSERT=5
 VI_MODE_CURSOR_OPPEND=0
-MODE_INDICATOR="%F{black}"
-INSERT_MODE_INDICATOR="%F{white}"
+MODE_INDICATOR="%F{blue}"
+INSERT_MODE_INDICATOR="%F{green}"
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{white}on%f %F{yellow}%B "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%b"
 ZSH_THEME_GIT_PROMPT_DIRTY="%F{red}*%f"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
+
 ZSH_THEME_GIT_PROMPT_AHEAD="%F{yellow}↑%f"
 ZSH_THEME_GIT_PROMPT_BEHIND="%F{green}↓%f"
 ZSH_THEME_GIT_PROMPT_DIVERGED="%F{yellow}↑%f%F{red}↓%f"
@@ -70,4 +71,4 @@ bindkey "^Z" vim-ctrl-z
 bindkey "^E" end-of-line       
 bindkey "^ " autosuggest-accept
 
-KEYTIMEOUT=0
+KEYTIMEOUT=1
