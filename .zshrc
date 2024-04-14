@@ -64,10 +64,12 @@ vim-ctrl-z () {
     zle clear-screen -w
   fi
 }
+
 zle -N vim-ctrl-z
-
-
 bindkey "^Z" vim-ctrl-z 
 bindkey "^E" end-of-line       
 bindkey "^ " autosuggest-accept
+
 KEYTIMEOUT=0
+
+unsetopt AUTO_CD
