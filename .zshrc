@@ -71,5 +71,3 @@ bindkey "^E" end-of-line
 bindkey "^ " autosuggest-accept
 
 KEYTIMEOUT=0
-
-unsetopt AUTO_CD
