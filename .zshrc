@@ -34,6 +34,7 @@ RPROMPT=''
 alias gg='lazygit'
 alias ls='lsd'
 alias vim="nvim"
+alias v="nvim"
 
 ghv() {
   gh repo view --web --branch $(git rev-parse --abbrev-ref HEAD)
