@@ -77,8 +77,6 @@ KEYTIMEOUT=10
 
 unsetopt AUTO_CD
 
-source ~/.config/fzf-git.sh
-
 eval "$(fzf --zsh)"
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
