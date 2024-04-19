@@ -31,3 +31,9 @@
 
 [diff]
     colorMoved = default
+
+[include]
+  path = ~/.config/catppuccin.config
+
+[delta]
+  features = catppuccin-mocha
