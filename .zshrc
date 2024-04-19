@@ -75,6 +75,8 @@ bindkey "^ " autosuggest-accept
 
 KEYTIMEOUT=1
 
+unsetopt AUTO_CD
+
 eval "$(fzf --zsh)"
 
 export FZF_DEFAULT_OPTS=" \
