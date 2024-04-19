@@ -73,12 +73,13 @@ bindkey "^Z" vim-ctrl-z
 bindkey "^E" end-of-line       
 bindkey "^ " autosuggest-accept
 
-KEYTIMEOUT=1
+KEYTIMEOUT=10
 
 unsetopt AUTO_CD
 
-eval "$(fzf --zsh)"
+source ~/.config/fzf-git.sh
 
+eval "$(fzf --zsh)"
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
