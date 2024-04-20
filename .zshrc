@@ -75,8 +75,6 @@ bindkey "^ " autosuggest-accept
 
 KEYTIMEOUT=10
 
-unsetopt AUTO_CD
-
 eval "$(fzf --zsh)"
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
