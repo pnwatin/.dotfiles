@@ -9,8 +9,8 @@ alt - l : yabai -m window --focus east
 # -- Spaces --
 #
 #change focus between spaces (left and right)
-alt - s: yabai -m space --focus next || yabai -m space --focus first
-alt - g: yabai -m space --focus prev || yabai -m space --focus last
+alt - g: yabai -m space --focus next || yabai -m space --focus first
+alt - s: yabai -m space --focus prev || yabai -m space --focus last
 
 # create and delete spaces
 shift + alt - c: yabai -m space --create
