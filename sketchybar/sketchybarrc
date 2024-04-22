@@ -30,13 +30,15 @@ sketchybar --bar height=37 \
 # For a full list of all available item properties see:
 # https://felixkratz.github.io/SketchyBar/config/items
 
-sketchybar --default icon.font="JetBrainsMono Nerd Font Mono:Regular:12.0" \
+sketchybar --default icon.font="JetBrainsMono Nerd Font Mono:Regular:14.0" \
 	icon.color=$WHITE \
-	label.font="JetBrainsMono Nerd Font Mono:Semibold:12.0" \
+	label.font="JetBrainsMono Nerd Font Mono:Semibold:14.0" \
 	label.color=$WHITE \
 	background.color=$ITEM_BG_COLOR \
 	background.corner_radius=5 \
 	background.height=24 \
+	background.border_color=$ITEM_BORDER_COLOR \
+	background.border_width=1 \
 	padding_left=5 \
 	padding_right=5 \
 	label.padding_left=4 \
