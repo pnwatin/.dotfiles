@@ -28,7 +28,8 @@ ZSH_THEME_GIT_PROMPT_STASHED=" %F{magenta}$%f"
 directory () {
   echo '%B%F{blue}%(5~|%-1~/../%3~|%4~)%f%b'
 }
-PROMPT='$(directory) $(git_prompt_info) $(git_prompt_status)
+PROMPT='
+$(directory) $(git_prompt_info) $(git_prompt_status)
 $(vi_mode_prompt_info)%f '
 RPROMPT=''
 
