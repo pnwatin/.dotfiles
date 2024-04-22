@@ -13,23 +13,23 @@ cmd - g: yabai -m space --focus next || yabai -m space --focus first
 cmd - s: yabai -m space --focus prev || yabai -m space --focus last
 
 # create and delete spaces
-cmd + alt - c: yabai -m space --create
-cmd + alt - x: yabai -m space --destroy
+cmd + ctrl - c: yabai -m space --create
+cmd + ctrl - x: yabai -m space --destroy
 
 
 # -- Modifying the Layout --
 
 # rotate layout clockwise
-cmd + alt - r : yabai -m space --rotate 270
+cmd + ctrl - r : yabai -m space --rotate 270
 
 # flip along y-axis
-cmd + alt - y : yabai -m space --mirror y-axis
+cmd + ctrl - y : yabai -m space --mirror y-axis
 
 # flip along x-axis
-cmd + alt - x : yabai -m space --mirror x-axis
+cmd + ctrl - x : yabai -m space --mirror x-axis
 
 # toggle window float
-cmd + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+cmd + ctrl - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 
 # -- Modifying Window Size --
@@ -38,22 +38,22 @@ cmd + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 cmd - m : yabai -m window --toggle zoom-fullscreen
 
 # balance out tree of windows (resize to occupy same area)
-cmd + alt - e : yabai -m space --balance
+cmd + ctrl - e : yabai -m space --balance
 
 # -- Moving Windows Around --
 
 # swap windows
-cmd + alt - j : yabai -m window --swap south
-cmd + alt - k : yabai -m window --swap north
-cmd + alt - h : yabai -m window --swap west
-cmd + alt - l : yabai -m window --swap east
+cmd + ctrl - j : yabai -m window --swap south
+cmd + ctrl - k : yabai -m window --swap north
+cmd + ctrl - h : yabai -m window --swap west
+cmd + ctrl - l : yabai -m window --swap east
 
 # move window and split
-cmd + ctrl - j : yabai -m window --warp south
-cmd + ctrl - k : yabai -m window --warp north
-cmd + ctrl - h : yabai -m window --warp west
-cmd + ctrl - l : yabai -m window --warp east
+cmd + ctrl + alt - j : yabai -m window --warp south
+cmd + ctrl + alt - k : yabai -m window --warp north
+cmd + ctrl + alt - h : yabai -m window --warp west
+cmd + ctrl + alt - l : yabai -m window --warp east
 
 # move window to prev and next space
-cmd + alt - g : yabai -m window --space next && yabai -m space --focus next || yabai -m window --space first && yabai -m space --focus first;
-cmd + alt - s : yabai -m window --space prev && yabai -m space --focus prev || yabai -m window --space last && yabai -m space --focus last;
+cmd + ctrl - g : (yabai -m window --space next && yabai -m space --focus next) || (yabai -m window --space first && yabai -m space --focus first) && yabai -m window  --focus last;
+cmd + ctrl - s : (yabai -m window --space prev && yabai -m space --focus prev) || (yabai -m window --space last && yabai -m space --focus last) && yabai -m window  --focus last;
