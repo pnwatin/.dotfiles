@@ -14,8 +14,8 @@ VI_MODE_CURSOR_NORMAL=2
 VI_MODE_CURSOR_VISUAL=4
 VI_MODE_CURSOR_INSERT=5
 VI_MODE_CURSOR_OPPEND=0
-MODE_INDICATOR="%F{blue}"
-INSERT_MODE_INDICATOR="%F{green}"
+MODE_INDICATOR="%F{blue}❮"
+INSERT_MODE_INDICATOR="%F{green}❯"
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{white}on%f %F{yellow}%B "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%b"
 ZSH_THEME_GIT_PROMPT_DIRTY="%F{red}*%f"
@@ -29,7 +29,7 @@ directory () {
   echo '%B%F{blue}%(5~|%-1~/../%3~|%4~)%f%b'
 }
 PROMPT='$(directory) $(git_prompt_info) $(git_prompt_status)
-%B$(vi_mode_prompt_info)❯%f%b '
+$(vi_mode_prompt_info)%f '
 RPROMPT=''
 
 # ALIASES & FUNCTIONS
