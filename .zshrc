@@ -35,6 +35,7 @@ RPROMPT=''
 # ALIASES & FUNCTIONS
 alias gg='lazygit'
 alias ls='lsd'
+alias l='lsd -lAh'
 alias vim="nvim"
 alias v="nvim"
 alias cat="bat"
