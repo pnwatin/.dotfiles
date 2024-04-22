@@ -39,14 +39,13 @@ cmd + alt - n : yabai -m space --create && \
 cmd + alt - w : yabai -m space --focus prev && yabai -m space recent --destroy
 
 # focus spaces
-cmd + alt - g: yabai -m space --focus next || yabai -m space --focus first
-cmd + alt - s: yabai -m space --focus prev || yabai -m space --focus last
+alt - g: yabai -m space --focus next || yabai -m space --focus first
+alt - s: yabai -m space --focus prev || yabai -m space --focus last
 
 
 # move window to spaces
-cmd + shift - g : (yabai -m window --space next && yabai -m space --focus next) || (yabai -m window --space first && yabai -m space --focus first) && yabai -m window  --focus last;
-cmd + shift - s : (yabai -m window --space prev && yabai -m space --focus prev) || (yabai -m window --space last && yabai -m space --focus last) && yabai -m window  --focus last;
-
+cmd + alt - g : (yabai -m window --space next && yabai -m space --focus next) || (yabai -m window --space first && yabai -m space --focus first) && yabai -m window  --focus last;
+cmd + alt - s : (yabai -m window --space prev && yabai -m space --focus prev) || (yabai -m window --space last && yabai -m space --focus last) && yabai -m window  --focus last;
 
 # rotate tree
 alt - r : yabai -m space --rotate 90
@@ -68,6 +67,3 @@ shift + alt - m : yabai -m window --toggle native-fullscreen
 
 # float / unfloat window and restore position
 alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
-
-# toggle sticky (show on all spaces)
-alt - s : yabai -m window --toggle sticky
