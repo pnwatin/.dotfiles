@@ -9,6 +9,7 @@ for sid in "${SPACE_SIDS[@]}"; do
 		label.font="sketchybar-app-font:Regular:12.0" \
 		label.padding_right=20 \
 		label.y_offset=-1 \
+		click_script="yabai -m space --focus $sid" \
 		script="$PLUGIN_DIR/space.sh"
 done
 
