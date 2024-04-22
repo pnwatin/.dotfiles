@@ -41,4 +41,4 @@ yabai -m rule --add app="^Raycast$" manage=off
 
 yabai -m config external_bar all:32:0
 
-borders active_color=0xffb4befe inactive_color=0xff313244 width=5.0 &
+borders active_color=0xffb4befe inactive_color=0xff313244 width=3.0 &
