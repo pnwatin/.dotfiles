@@ -11,6 +11,11 @@ ctrl - u -> [
   *       : skhd -k "cmd - backspace"
 ]
 
+cmd - l -> [ 
+  "Firefox" : skhd -k "f6"
+  *         : ~
+]
+
 # focus window
 alt - x : yabai -m window --focus recent
 alt - h : yabai -m window --focus west
