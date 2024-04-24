@@ -1,19 +1,21 @@
 # open terminal
 cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
 
+# use vim style previous word every where
 ctrl - w -> [ 
   "kitty" : ~
   *       : skhd -k "alt - backspace"
 ]
 
+# use vim style previous line every where
 ctrl - u -> [ 
   "kitty" : ~
   *       : skhd -k "cmd - backspace"
 ]
 
-cmd - l -> [ 
+# fix firefox weird F6 keymap
+cmd - l [ 
   "Firefox" : skhd -k "f6"
-  *         : ~
 ]
 
 # focus window
