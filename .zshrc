@@ -3,7 +3,7 @@ export PROMPT_EOL_MARK=''
 export EDITOR='nvim'
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
 
-plugins=(git z zsh-autosuggestions vi-mode zsh-syntax-highlighting git-auto-fetch)
+plugins=(gitfast z zsh-autosuggestions vi-mode zsh-syntax-highlighting git-auto-fetch)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -44,6 +44,7 @@ alias l='lsd -lAh'
 alias vim="nvim"
 alias v="nvim"
 alias cat="bat"
+alias g="git"
 
 ghv() {
   gh repo view --web --branch $(git rev-parse --abbrev-ref HEAD)
