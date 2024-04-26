@@ -14,8 +14,10 @@ VI_MODE_CURSOR_NORMAL=2
 VI_MODE_CURSOR_VISUAL=4
 VI_MODE_CURSOR_INSERT=5
 VI_MODE_CURSOR_OPPEND=0
-MODE_INDICATOR="%F{blue}❮"
-INSERT_MODE_INDICATOR="%F{green}❯"
+
+MODE_INDICATOR="%F{blue}❮%f"
+INSERT_MODE_INDICATOR="%F{green}❯%f"
+
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{white}on%f %F{yellow}%B "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%b"
 ZSH_THEME_GIT_PROMPT_DIRTY="%F{red}*%f"
@@ -25,11 +27,14 @@ ZSH_THEME_GIT_PROMPT_AHEAD="%F{yellow}↑%f"
 ZSH_THEME_GIT_PROMPT_BEHIND="%F{green}↓%f"
 ZSH_THEME_GIT_PROMPT_DIVERGED="%F{yellow}↑%f%F{red}↓%f"
 ZSH_THEME_GIT_PROMPT_STASHED=" %F{magenta}$%f"
+
 directory () {
   echo '%B%F{blue}%(5~|%-1~/../%3~|%4~)%f%b'
 }
+
 PROMPT='$(directory) $(git_prompt_info) $(git_prompt_status)
-$(vi_mode_prompt_info)%f '
+$(vi_mode_prompt_info) '
+
 RPROMPT=''
 
 # ALIASES & FUNCTIONS
@@ -73,8 +78,8 @@ vim-ctrl-z () {
 
 # KEYBINDINGS
 zle -N vim-ctrl-z
-bindkey "^Z" vim-ctrl-z 
-bindkey "^E" end-of-line       
-bindkey "^ " autosuggest-accept
+bindkey "^Z" vim-ctrl-z
+bindkey "^E" end-of-line
+bindkey "^ " vi-forward-word
 
 KEYTIMEOUT=10
