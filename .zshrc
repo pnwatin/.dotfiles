@@ -27,23 +27,11 @@ directory () {
 }
 
 zvm_info() {
-  case $ZVM_MODE in
-    $ZVM_MODE_NORMAL)
-      echo "%F{red}❮%f"
-    ;;
-    $ZVM_MODE_INSERT)
-      echo "%F{green}❯%f"
-    ;;
-    $ZVM_MODE_VISUAL)
-      echo "%F{magenta}v%f"
-    ;;
-    $ZVM_MODE_VISUAL_LINE)
-      echo "%F{magenta}v%f"
-    ;;
-    $ZVM_MODE_REPLACE)
-      echo "%F{red}r%f"
-    ;;
-  esac
+ if [ "$ZVM_MODE" = "$ZVM_MODE_INSERT" ]; then
+    echo "%F{green}❯%f"
+  else
+    echo "%F{red}❮%f"
+  fi
 }
 
 PROMPT='$(directory) $(git_prompt_info) $(git_prompt_status)
