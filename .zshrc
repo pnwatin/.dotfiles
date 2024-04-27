@@ -3,21 +3,15 @@ export PROMPT_EOL_MARK=''
 export EDITOR='nvim'
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
 
-plugins=(gitfast z zsh-autosuggestions vi-mode zsh-syntax-highlighting git-auto-fetch)
+plugins=(gitfast z zsh-autosuggestions zsh-syntax-highlighting git-auto-fetch zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
+# ZVM
+ZVM_VI_HIGHLIGHT_BACKGROUND=#45475a
+ZVM_VI_SURROUND_BINDKEY=s-prefix
+
 # PROMPT
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
-VI_MODE_CURSOR_NORMAL=2
-VI_MODE_CURSOR_VISUAL=4
-VI_MODE_CURSOR_INSERT=5
-VI_MODE_CURSOR_OPPEND=0
-
-MODE_INDICATOR="%F{blue}❮%f"
-INSERT_MODE_INDICATOR="%F{green}❯%f"
-
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{white}on%f %F{yellow}%B "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%b"
 ZSH_THEME_GIT_PROMPT_DIRTY="%F{red}*%f"
@@ -32,8 +26,28 @@ directory () {
   echo '%B%F{blue}%(5~|%-1~/../%3~|%4~)%f%b'
 }
 
+zvm_info() {
+  case $ZVM_MODE in
+    $ZVM_MODE_NORMAL)
+      echo "%F{red}❮%f"
+    ;;
+    $ZVM_MODE_INSERT)
+      echo "%F{green}❯%f"
+    ;;
+    $ZVM_MODE_VISUAL)
+      echo "%F{magenta}v%f"
+    ;;
+    $ZVM_MODE_VISUAL_LINE)
+      echo "%F{magenta}v%f"
+    ;;
+    $ZVM_MODE_REPLACE)
+      echo "%F{red}r%f"
+    ;;
+  esac
+}
+
 PROMPT='$(directory) $(git_prompt_info) $(git_prompt_status)
-$(vi_mode_prompt_info) '
+%B$(zvm_info)%b '
 
 RPROMPT=''
 
