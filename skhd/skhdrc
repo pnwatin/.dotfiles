@@ -14,79 +14,79 @@ ctrl - u -> [
 ]
 
 # fix firefox weird F6 keymap
-cmd - l [ 
+cmd - u [ 
   "Firefox" : skhd -k "f6"
 ]
 
 # focus window
-alt - x : yabai -m window --focus recent
-alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - l : yabai -m window --focus east
+# alt - x : yabai -m window --focus recent
+cmd - h : yabai -m window --focus west
+cmd - j : yabai -m window --focus south
+cmd - k : yabai -m window --focus north
+cmd - l : yabai -m window --focus east
 
 # swap window
-shift + alt - x : yabai -m window --swap recent
-shift + alt - h : yabai -m window --swap west
-shift + alt - j : yabai -m window --swap south
-shift + alt - k : yabai -m window --swap north
-shift + alt - l : yabai -m window --swap east
+# cmd + ctrl - x : yabai -m window --swap recent
+cmd + ctrl - h : yabai -m window --swap west
+cmd + ctrl - j : yabai -m window --swap south
+cmd + ctrl - k : yabai -m window --swap north
+cmd + ctrl - l : yabai -m window --swap east
 
 # move window
-shift + cmd - h : yabai -m window --warp west
-shift + cmd - j : yabai -m window --warp south
-shift + cmd - k : yabai -m window --warp north
-shift + cmd - l : yabai -m window --warp east
-
-# balance size of windows
-shift + alt - 0 : yabai -m space --balance
+cmd + shift - h : yabai -m window --warp west
+cmd + shift - j : yabai -m window --warp south
+cmd + shift - k : yabai -m window --warp north
+cmd + shift - l : yabai -m window --warp east
 
 # create desktop, move window and follow focus - uses jq for parsing json
-shift + cmd - n : yabai -m space --create && \
+cmd + shift - n : yabai -m space --create && \
                   index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
                   yabai -m window --space "${index}" && \
                   yabai -m space --focus "${index}"
 
 # create desktop and follow focus - uses jq for parsing json
-cmd + alt - n : yabai -m space --create && \
+cmd + ctrl - n : yabai -m space --create && \
                 index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
                 yabai -m space --focus "${index}"
 
 # destroy desktop
-cmd + alt - w : (yabai -m space --focus prev || yabai -m space --focus last) && \
+cmd + ctrl - w : (yabai -m space --focus prev || yabai -m space --focus last) && \
                 yabai -m window --focus recent && \
                 yabai -m space recent --destroy
 
 # focus spaces
-alt - g: yabai -m space --focus next || yabai -m space --focus first
-alt - s: yabai -m space --focus prev || yabai -m space --focus last
+cmd - g: yabai -m space --focus next || yabai -m space --focus first
+cmd - s: yabai -m space --focus prev || yabai -m space --focus last
 
 
 # move window to spaces
-cmd + alt - g : (yabai -m window --space next && yabai -m space --focus next) || \
+cmd + shift - g : (yabai -m window --space next && yabai -m space --focus next) || \
                 (yabai -m window --space first && yabai -m space --focus first) && \
                 yabai -m window  --focus last
-cmd + alt - s : (yabai -m window --space prev && yabai -m space --focus prev) || \
+cmd + shift - s : (yabai -m window --space prev && yabai -m space --focus prev) || \
                 (yabai -m window --space last && yabai -m space --focus last) && \
                 yabai -m window  --focus last
 
+# balance size of windows
+cmd - e : yabai -m space --balance
+
 # rotate tree
-alt - r : yabai -m space --rotate 90
+cmd + ctrl - r : yabai -m space --rotate 270
 
 # mirror tree y-axis
-alt - y : yabai -m space --mirror y-axis
+cmd + ctrl - y : yabai -m space --mirror y-axis
 
 # mirror tree x-axis
-alt - x : yabai -m space --mirror x-axis
+cmd + ctrl - x : yabai -m space --mirror x-axis
 
 # toggle window parent zoom
-alt - d : yabai -m window --toggle zoom-parent
+cmd - d : yabai -m window --toggle zoom-parent
 
 # toggle window fullscreen zoom
-alt - m : yabai -m window --toggle zoom-fullscreen
+cmd - m : yabai -m window --toggle zoom-fullscreen
 
 # toggle window native fullscreen
-shift + alt - m : yabai -m window --toggle native-fullscreen
+cmd + ctrl - m : yabai -m window --toggle native-fullscreen
 
 # float / unfloat window and restore position
-alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+cmd + ctrl - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
