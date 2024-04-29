@@ -85,4 +85,9 @@ bindkey "^Z" vim-ctrl-z
 bindkey "^E" end-of-line
 bindkey "^ " vi-forward-word
 
+function zvm_after_init() {
+  zvm_bindkey viins '^ ' vi-forward-word
+  zvm_bindkey viins '^E' end-of-line
+}
+
 KEYTIMEOUT=10
