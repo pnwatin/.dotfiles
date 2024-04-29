@@ -4,6 +4,7 @@ export EDITOR='nvim'
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
 
 plugins=(gitfast z zsh-autosuggestions zsh-syntax-highlighting git-auto-fetch zsh-vi-mode)
+plugins=(gitfast z zsh-autosuggestions fast-syntax-highlighting git-auto-fetch zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
