@@ -3,7 +3,6 @@ export PROMPT_EOL_MARK=''
 export EDITOR='nvim'
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
 
-plugins=(gitfast z zsh-autosuggestions zsh-syntax-highlighting git-auto-fetch zsh-vi-mode)
 plugins=(gitfast z zsh-autosuggestions fast-syntax-highlighting git-auto-fetch zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
@@ -84,10 +83,10 @@ vim-ctrl-z () {
 zle -N vim-ctrl-z
 bindkey "^Z" vim-ctrl-z
 bindkey "^E" end-of-line
-bindkey "^ " vi-forward-word
+bindkey "^F" vi-forward-word
 
 function zvm_after_init() {
-  zvm_bindkey viins '^ ' vi-forward-word
+  zvm_bindkey viins '^F' vi-forward-word
   zvm_bindkey viins '^E' end-of-line
 }
 
