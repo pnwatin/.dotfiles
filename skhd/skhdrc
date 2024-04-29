@@ -27,16 +27,16 @@ cmd - l : yabai -m window --focus east
 
 # swap window
 # cmd + ctrl - x : yabai -m window --swap recent
-cmd + ctrl - h : yabai -m window --swap west
-cmd + ctrl - j : yabai -m window --swap south
-cmd + ctrl - k : yabai -m window --swap north
-cmd + ctrl - l : yabai -m window --swap east
+cmd + shift - h : yabai -m window --swap west
+cmd + shift - j : yabai -m window --swap south
+cmd + shift - k : yabai -m window --swap north
+cmd + shift - l : yabai -m window --swap east
 
 # move window
-cmd + shift - h : yabai -m window --warp west
-cmd + shift - j : yabai -m window --warp south
-cmd + shift - k : yabai -m window --warp north
-cmd + shift - l : yabai -m window --warp east
+cmd + ctrl - h : yabai -m window --warp west
+cmd + ctrl - j : yabai -m window --warp south
+cmd + ctrl - k : yabai -m window --warp north
+cmd + ctrl - l : yabai -m window --warp east
 
 # create desktop, move window and follow focus - uses jq for parsing json
 cmd + shift - n : yabai -m space --create && \
