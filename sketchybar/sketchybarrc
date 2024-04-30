@@ -37,14 +37,14 @@ sketchybar --default icon.font="JetBrainsMono Nerd Font Mono:Regular:14.0" \
 	background.color=$ITEM_BG_COLOR \
 	background.corner_radius=5 \
 	background.height=24 \
-	background.border_color=$ITEM_BORDER_COLOR \
-	background.border_width=1 \
 	padding_left=5 \
 	padding_right=5 \
 	label.padding_left=4 \
 	label.padding_right=10 \
 	icon.padding_left=10 \
 	icon.padding_right=4
+# background.border_color=$ITEM_BORDER_COLOR \
+# background.border_width=1 \
 
 # -- Left Side Items --
 source $ITEM_DIR/spaces.sh
