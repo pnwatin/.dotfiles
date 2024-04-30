@@ -10,6 +10,8 @@ source $ZSH/oh-my-zsh.sh
 # ZVM
 ZVM_VI_HIGHLIGHT_BACKGROUND=#45475a
 ZVM_VI_SURROUND_BINDKEY=s-prefix
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
+ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
 
 # PROMPT
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{white}on%f %F{yellow}%B "
@@ -54,9 +56,9 @@ ghv() {
 
 nvim() {
     if [ $# -eq 0 ]; then
-        command nvim .
+        TERM=xterm-kitty command nvim .
     else
-        command nvim "$@"
+        TERM=xterm-kitty command nvim "$@"
     fi
 }
 
