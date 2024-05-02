@@ -93,3 +93,7 @@ function zvm_after_init() {
 }
 
 KEYTIMEOUT=10
+
+if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
+  tmux attach || tmux
+fi
