@@ -1,5 +1,5 @@
 # open terminal
-# cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
+cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
 
 # use vim style previous word every where
 ctrl - w -> [ 
@@ -79,11 +79,12 @@ cmd + ctrl - y : yabai -m space --mirror y-axis
 # mirror tree x-axis
 cmd + ctrl - x : yabai -m space --mirror x-axis
 
-# toggle window parent zoom
-cmd - d : yabai -m window --toggle zoom-parent
 
 # toggle window fullscreen zoom
 cmd - m : yabai -m window --toggle zoom-fullscreen
+
+# toggle window parent zoom
+cmd + alt - m : yabai -m window --toggle zoom-parent
 
 # toggle window native fullscreen
 cmd + ctrl - m : yabai -m window --toggle native-fullscreen
