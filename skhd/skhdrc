@@ -84,10 +84,10 @@ cmd + ctrl - x : yabai -m space --mirror x-axis
 cmd - m : yabai -m window --toggle zoom-fullscreen
 
 # toggle window parent zoom
-cmd + alt - m : yabai -m window --toggle zoom-parent
+cmd + ctrl - m : yabai -m window --toggle zoom-parent
 
 # toggle window native fullscreen
-cmd + ctrl - m : yabai -m window --toggle native-fullscreen
+# cmd + ctrl - m : yabai -m window --toggle native-fullscreen
 
 # float / unfloat window and restore position
 cmd + ctrl - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
