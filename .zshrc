@@ -1,55 +1,66 @@
-export ZSH="$HOME/.oh-my-zsh"
-export PROMPT_EOL_MARK=''
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# Set the directory we want to store zinit and plugins
+ZINIT_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit"
+ZINIT_HOME="$ZINIT_ROOT/zinit.git"
+
+export LS_COLOR="$(vivid generate catppuccin-mocha)"
 export EDITOR='nvim'
-export LS_COLORS="$(vivid generate catppuccin-mocha)"
 
-plugins=(gitfast z zsh-autosuggestions fast-syntax-highlighting git-auto-fetch zsh-vi-mode)
+# Download Zinit, if it's not there yet
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 
-source $ZSH/oh-my-zsh.sh
+# Source/Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
 
-# ZVM
+# Add in zsh plugins
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light jeffreytse/zsh-vi-mode
+
+# Add in snippets
+zinit snippet OMZP::gitfast
+
+# Load completions
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+
+# Shell integrations
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+
+# zvm
 ZVM_VI_HIGHLIGHT_BACKGROUND=#45475a
 ZVM_VI_SURROUND_BINDKEY=s-prefix
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
 ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
 
-# PROMPT
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{white}on%f %F{yellow}%B "
-ZSH_THEME_GIT_PROMPT_SUFFIX="%b"
-ZSH_THEME_GIT_PROMPT_DIRTY="%F{red}*%f"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
-
-ZSH_THEME_GIT_PROMPT_AHEAD="%F{yellow}↑%f"
-ZSH_THEME_GIT_PROMPT_BEHIND="%F{green}↓%f"
-ZSH_THEME_GIT_PROMPT_DIVERGED="%F{yellow}↑%f%F{red}↓%f"
-ZSH_THEME_GIT_PROMPT_STASHED=" %F{magenta}$%f"
-
-directory () {
-  echo '%B%F{blue}%(5~|%-1~/../%3~|%4~)%f%b'
-}
-
-zvm_info() {
- if [ "$ZVM_MODE" = "$ZVM_MODE_INSERT" ]; then
-    echo "%F{green}❯%f"
-  else
-    echo "%F{red}❮%f"
-  fi
-}
-
-PROMPT='$(directory) $(git_prompt_info) $(git_prompt_status)
-%B$(zvm_info)%b '
-
-RPROMPT=''
-
-# ALIASES & FUNCTIONS
-alias gg='lazygit'
-alias ls='lsd'
-alias l='lsd -lAh'
-alias vim="nvim"
-alias v="nvim"
-alias cat="bat"
-alias g="git"
-
+# functions
 ghv() {
   gh repo view --web --branch $(git rev-parse --abbrev-ref HEAD)
 }
@@ -81,32 +92,20 @@ vim-ctrl-z () {
   fi
 }
 
-# KEYBINDINGS
+# aliases
+alias gg='lazygit'
+alias ls='lsd'
+alias l='lsd -lAh'
+alias vim="nvim"
+alias v="nvim"
+alias cat="bat"
+alias g="git"
+alias c='clear'
+
+# keymaps
 zle -N vim-ctrl-z
-bindkey "^Z" vim-ctrl-z
 bindkey "^E" end-of-line
+bindkey "^Z" vim-ctrl-z
 bindkey "^F" vi-forward-word
-
-function zvm_after_init() {
-  zvm_bindkey viins '^F' vi-forward-word
-  zvm_bindkey viins '^E' end-of-line
-}
-
-KEYTIMEOUT=10
-
-# Fix slowness of pastes
-pasteinit() {
-  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
-  zle -N self-insert url-quote-magic
-}
-
-pastefinish() {
-  zle -N self-insert $OLD_SELF_INSERT
-}
-
-zstyle :bracketed-paste-magic paste-init pasteinit
-zstyle :bracketed-paste-magic paste-finish pastefinish
-
-# if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
-#   tmux attach || tmux
-# fi
+bindkey "^N" history-search-forward
+bindkey "^P" history-search-backward
