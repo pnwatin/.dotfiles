@@ -26,6 +26,7 @@ zinit light jeffreytse/zsh-vi-mode
 
 # Add in snippets
 zinit snippet OMZP::gitfast
+zinit snippet OMZP::git-auto-fetch
 
 # Load completions
 autoload -Uz compinit && compinit
