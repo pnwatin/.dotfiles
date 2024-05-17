@@ -6,9 +6,6 @@ fi
 ZINIT_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit"
 ZINIT_HOME="$ZINIT_ROOT/zinit.git"
 
-export LS_COLOR="$(vivid generate catppuccin-mocha)"
-export EDITOR='nvim'
-
 # Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
    mkdir -p "$(dirname $ZINIT_HOME)"
@@ -17,6 +14,9 @@ fi
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
+
+export LS_COLORS="$(vivid generate catppuccin-mocha)"
+export EDITOR='nvim'
 
 # Add in zsh plugins
 zinit light zdharma-continuum/fast-syntax-highlighting
