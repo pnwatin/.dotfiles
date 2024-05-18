@@ -110,3 +110,9 @@ bindkey "^Z" vim-ctrl-z
 bindkey "^F" vi-forward-word
 bindkey "^N" history-search-forward
 bindkey "^P" history-search-backward
+
+function zvm_after_init() {
+  zvm_bindkey viins '^F' vi-forward-word
+  zvm_bindkey viins '^E' end-of-line
+}
+
