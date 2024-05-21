@@ -79,7 +79,7 @@ dstart() {
 }
 
 dstop() {
-  docker container stop $(docker ps -aq)
+  docker container stop $(docker ps -aq) > /dev/null
   osascript -e 'tell application "System Events" to tell process "Docker Desktop" to click menu item "Quit Docker Desktop" of menu 1 of menu bar item "Docker Desktop" of menu bar 1' >/dev/null 2>&1
 }
 
