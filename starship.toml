@@ -32,8 +32,9 @@ ahead = "[↑](yellow) "
 behind = "[↓](green) "
 diverged = "[↓](green)[↑](yellow) "
 staged = "[+](green)"
-deleted = "x"
-modified = "*"
+deleted = "D"
+modified = "M"
+untracked = "??"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
