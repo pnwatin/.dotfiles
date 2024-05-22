@@ -54,6 +54,7 @@ zstyle ':completion:*' menu no
 # Shell integrations
 eval "$(zoxide init zsh)"
 type starship_zle-keymap-select >/dev/null || eval "$(starship init zsh)"
+eval "$(fnm env --use-on-cd)"
 
 # zvm
 ZVM_VI_HIGHLIGHT_BACKGROUND=#45475a
