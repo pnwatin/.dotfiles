@@ -103,6 +103,7 @@ alias v="nvim"
 alias cat="bat"
 alias g="git"
 alias c='clear'
+alias ..='cd ..'
 
 # keymaps
 zle -N vim-ctrl-z
