@@ -1,5 +1,5 @@
 # open terminal
-# cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
+cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
 
 # use vim style previous word every where
 ctrl - w -> [ 
@@ -53,15 +53,15 @@ cmd + ctrl - n : yabai -m space --create && \
 cmd + ctrl - w : yabai -m space --destroy
 
 # focus spaces
-cmd - g: yabai -m space --focus next || yabai -m space --focus first
-cmd - s: yabai -m space --focus prev || yabai -m space --focus last
+cmd - right: yabai -m space --focus next || yabai -m space --focus first
+cmd - left: yabai -m space --focus prev || yabai -m space --focus last
 
 
 # move window to spaces
-cmd + shift - g : (yabai -m window --space next && yabai -m space --focus next) || \
+cmd + shift - right : (yabai -m window --space next && yabai -m space --focus next) || \
                 (yabai -m window --space first && yabai -m space --focus first) && \
                 yabai -m window  --focus last
-cmd + shift - s : (yabai -m window --space prev && yabai -m space --focus prev) || \
+cmd + shift - left : (yabai -m window --space prev && yabai -m space --focus prev) || \
                 (yabai -m window --space last && yabai -m space --focus last) && \
                 yabai -m window  --focus last
 
