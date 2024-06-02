@@ -94,6 +94,10 @@ vim-ctrl-z () {
   fi
 }
 
+function clear-screen {
+  tput clear
+}
+
 # aliases
 alias gg='lazygit'
 alias ls='lsd'
@@ -112,6 +116,7 @@ bindkey "^Z" vim-ctrl-z
 bindkey "^F" vi-forward-word
 bindkey "^N" history-search-forward
 bindkey "^P" history-search-backward
+bindkey "^X" clear-screen
 
 function zvm_after_init() {
   zvm_bindkey viins '^F' vi-forward-word
