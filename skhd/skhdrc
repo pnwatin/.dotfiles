@@ -55,14 +55,14 @@ cmd + ctrl - w : yabai -m space --destroy
 # focus spaces
 cmd - right: yabai -m space --focus next || yabai -m space --focus first
 cmd - left: yabai -m space --focus prev || yabai -m space --focus last
-cmd + fn - l: yabai -m space --focus next || yabai -m space --focus first
-cmd + fn - h: yabai -m space --focus prev || yabai -m space --focus last
+cmd - 0x2F: yabai -m space --focus next || yabai -m space --focus first
+cmd - 0x2B: yabai -m space --focus prev || yabai -m space --focus last
 
 # move window to spaces
-cmd + shift - right : (yabai -m window --space next && yabai -m space --focus next) || \
+cmd + shift - 0x2F : (yabai -m window --space next && yabai -m space --focus next) || \
                 (yabai -m window --space first && yabai -m space --focus first) && \
                 yabai -m window  --focus last
-cmd + shift - left : (yabai -m window --space prev && yabai -m space --focus prev) || \
+cmd + shift - 0x2B : (yabai -m window --space prev && yabai -m space --focus prev) || \
                 (yabai -m window --space last && yabai -m space --focus last) && \
                 yabai -m window  --focus last
 
