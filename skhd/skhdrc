@@ -53,8 +53,6 @@ cmd + ctrl - n : yabai -m space --create && \
 cmd + ctrl - w : yabai -m space --destroy
 
 # focus spaces
-cmd - right: yabai -m space --focus next || yabai -m space --focus first
-cmd - left: yabai -m space --focus prev || yabai -m space --focus last
 cmd - 0x2F: yabai -m space --focus next || yabai -m space --focus first
 cmd - 0x2B: yabai -m space --focus prev || yabai -m space --focus last
 
