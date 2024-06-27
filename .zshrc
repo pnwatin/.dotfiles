@@ -108,6 +108,8 @@ alias cat="bat"
 alias g="git"
 alias c='clear'
 alias ..='cd ..'
+alias normal='yabai --stop-service && skhd --stop-service'
+alias dev='yabai --start-service && skhd --start-service'
 
 # keymaps
 zle -N vim-ctrl-z
