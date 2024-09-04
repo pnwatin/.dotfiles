@@ -126,3 +126,6 @@ function zvm_after_init() {
   zvm_bindkey viins '^E' end-of-line
 }
 
+if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
+  tmux attach || exec tmux new-session && exit;
+fi
