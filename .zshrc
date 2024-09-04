@@ -127,5 +127,5 @@ function zvm_after_init() {
 }
 
 if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
-  tmux attach || exec tmux new-session && exit;
+  tmux attach || tmux;
 fi
