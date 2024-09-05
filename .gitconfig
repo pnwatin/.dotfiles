@@ -402,3 +402,5 @@ subrepo = !sh -c 'git filter-branch --prune-empty --subdirectory-filter $1 $(git
 human = name-rev --name-only --refs=refs/heads/*
 contributors = shortlog --summary --numbered                            # List contributors with number of commits
 credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f" # Credit an author on the latest commit
+
+v = "!gh repo view --web --branch $(git rev-parse --abbrev-ref HEAD)"
