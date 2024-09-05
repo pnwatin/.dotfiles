@@ -65,10 +65,6 @@ ZVM_VI_SURROUND_BINDKEY=s-prefix
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
 ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
 
-# functions
-ghv() {
-  gh repo view --web --branch $(git rev-parse --abbrev-ref HEAD)
-}
 
 nvim() {
     if [ $# -eq 0 ]; then
