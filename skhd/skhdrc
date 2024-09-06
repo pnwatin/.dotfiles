@@ -1,13 +1,19 @@
 # open terminal
 cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
 
-# use vim style previous word every where
+# use vim style delete previous word every where
 ctrl - w -> [ 
   "kitty" : ~
   *       : skhd -k "alt - backspace"
 ]
 
-# use vim style previous line every where
+# use zsh style go to end of word
+ctrl - f -> [ 
+  "kitty" : ~
+  *       : skhd -k "alt - right"
+]
+
+# use vim style delete previous line every where
 ctrl - u -> [ 
   "kitty" : ~
   *       : skhd -k "cmd - backspace"
