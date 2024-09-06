@@ -59,13 +59,14 @@ eval "$(zoxide init zsh)"
 type starship_zle-keymap-select >/dev/null || eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
 
-# zvm
+# ZVM env
 ZVM_VI_HIGHLIGHT_BACKGROUND=#45475a
 ZVM_VI_SURROUND_BINDKEY=s-prefix
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
 ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
 
 
+# Function to start nvim at the root dir if no path is specified
 nvim() {
     if [ $# -eq 0 ]; then
         TERM=xterm-kitty command nvim .
@@ -74,15 +75,7 @@ nvim() {
     fi
 }
 
-dstart() {
-    open -a Docker -j
-}
-
-dstop() {
-  docker container stop $(docker ps -aq) > /dev/null
-  osascript -e 'tell application "System Events" to tell process "Docker Desktop" to click menu item "Quit Docker Desktop" of menu 1 of menu bar item "Docker Desktop" of menu bar 1' >/dev/null 2>&1
-}
-
+# Function to suspend vim
 vim-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
@@ -92,12 +85,44 @@ vim-ctrl-z () {
     zle clear-screen -w
   fi
 }
+zle -N vim-ctrl-z
 
-function clear-screen {
+# Function to start docker
+dstart() {
+    open -a Docker -j
+}
+
+# Function to stop docker
+dstop() {
+  docker container stop $(docker ps -aq) > /dev/null
+  osascript -e 'tell application "System Events" to tell process "Docker Desktop" to click menu item "Quit Docker Desktop" of menu 1 of menu bar item "Docker Desktop" of menu bar 1' >/dev/null 2>&1
+}
+
+# Function to open any app from the terminal
+o() {
+    local app="$1"
+    if [[ -z "$app" ]]; then
+        echo "Usage: o <Application>"
+    else
+        open -a "/Applications/$app.app"
+    fi
+}
+
+_o_completions() {
+    local apps
+    apps=(${(f)"$(ls /Applications | sed 's/\.app$//')"})
+    _describe 'applications' apps
+}
+
+compdef _o_completions o
+
+
+# Function to clear the screen (since i use ctrl-l in yabai i need to remap it to ctrl-x)
+clear-screen() {
   tput clear
 }
 
-# aliases
+# Aliases
 alias gg='lazygit'
 alias ls='lsd'
 alias l='lsd -lAh'
@@ -108,8 +133,7 @@ alias g="git"
 alias c='clear'
 alias ..='cd ..'
 
-# keymaps
-zle -N vim-ctrl-z
+# Keymaps
 bindkey "^E" end-of-line
 bindkey "^Z" vim-ctrl-z
 bindkey "^F" vi-forward-word
@@ -117,11 +141,13 @@ bindkey "^N" history-search-forward
 bindkey "^P" history-search-backward
 bindkey "^X" clear-screen
 
-function zvm_after_init() {
+# Fix for zvm keybindings
+zvm_after_init() {
   zvm_bindkey viins '^F' vi-forward-word
   zvm_bindkey viins '^E' end-of-line
 }
 
+# Tmux at startup
 if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
   tmux attach || tmux;
 fi
