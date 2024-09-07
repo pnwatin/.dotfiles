@@ -67,7 +67,7 @@ ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
 
 
 # Function to start nvim at the root dir if no path is specified
-nvim() {
+function nvim() {
     if [ $# -eq 0 ]; then
         TERM=xterm-kitty command nvim .
     else
@@ -76,7 +76,7 @@ nvim() {
 }
 
 # Function to suspend vim
-vim-ctrl-z () {
+function vim-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
     zle accept-line -w
@@ -88,18 +88,18 @@ vim-ctrl-z () {
 zle -N vim-ctrl-z
 
 # Function to start docker
-dstart() {
+function dstart() {
     open -a Docker -j
 }
 
 # Function to stop docker
-dstop() {
+function dstop() {
   docker container stop $(docker ps -aq) > /dev/null
   osascript -e 'tell application "System Events" to tell process "Docker Desktop" to click menu item "Quit Docker Desktop" of menu 1 of menu bar item "Docker Desktop" of menu bar 1' >/dev/null 2>&1
 }
 
 # Function to open any app from the terminal
-o() {
+function o() {
     local app="$1"
     if [[ -z "$app" ]]; then
         echo "Usage: o <Application>"
@@ -118,7 +118,7 @@ compdef _o_completions o
 
 
 # Function to clear the screen (since i use ctrl-l in yabai i need to remap it to ctrl-x)
-clear-screen() {
+function clear-screen() {
   tput clear
 }
 
@@ -142,7 +142,7 @@ bindkey "^P" history-search-backward
 bindkey "^X" clear-screen
 
 # Fix for zvm keybindings
-zvm_after_init() {
+function zvm_after_init() {
   zvm_bindkey viins '^F' vi-forward-word
   zvm_bindkey viins '^E' end-of-line
 }
