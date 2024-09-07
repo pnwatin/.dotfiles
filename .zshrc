@@ -87,11 +87,6 @@ function vim-ctrl-z () {
 }
 zle -N vim-ctrl-z
 
-# Function to start docker
-function dstart() {
-    open -a Docker -j
-}
-
 # Function to stop docker
 function dstop() {
   docker container stop $(docker ps -aq) > /dev/null
