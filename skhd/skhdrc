@@ -22,6 +22,7 @@ ctrl - u -> [
 # fix firefox weird F6 keymap
 cmd - u [ 
   "Firefox" : skhd -k "f6"
+  "Zen Browser" : skhd -k "f6"
 ]
 
 # focus window
