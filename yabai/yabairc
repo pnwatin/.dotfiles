@@ -20,8 +20,8 @@ yabai -m config \
   focus_follows_mouse autoraise \
   window_placement second_child \
   window_shadow off \
-  active_window_opacity 1.00 \
-  normal_window_opacity 0.95 \
+  active_window_opacity 0.95 \
+  normal_window_opacity 0.80 \
   window_opacity off \
   split_ratio 0.50 \
   auto_balance off \
@@ -40,4 +40,4 @@ yabai -m config \
 
 echo "yabai config loaded..."
 
-borders active_color=0xffa6e3a1 inactive_color=0xff313244 width=3.0 &
+borders active_color=0xffa6e3a1 inactive_color=0xff313244 width=2.0 &
