@@ -16,7 +16,6 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
-export INFISICAL_API_URL="https://domo.nivalis.studio"
 export EDITOR='nvim'
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
