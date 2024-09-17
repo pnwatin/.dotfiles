@@ -27,10 +27,10 @@ cmd - u [
 
 # focus window
 # alt - x : yabai -m window --focus recent
-cmd - h : yabai -m window --focus west
+cmd - h : yabai -m window --focus west || yabai -m space --focus prev || yabai -m space --focus last
 cmd - j : yabai -m window --focus south
 cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus east
+cmd - l : yabai -m window --focus east || yabai -m space --focus next || yabai -m space --focus first
 
 # swap window
 # cmd + ctrl - x : yabai -m window --swap recent
