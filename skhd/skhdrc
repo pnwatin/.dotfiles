@@ -1,10 +1,6 @@
 # open terminal
 cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
 
-.blacklist [
-  "Finder"
-]
-
 # use vim style delete previous word every where
 ctrl - w -> [ 
   "kitty" : ~
@@ -24,17 +20,16 @@ ctrl - u -> [
 ]
 
 # fix firefox weird F6 keymap
-cmd - u [ 
+cmd - l [ 
   "Firefox" : skhd -k "f6"
   "Zen Browser" : skhd -k "f6"
 ]
 
 # focus window
-# alt - x : yabai -m window --focus recent
-cmd - h : yabai -m window --focus west || yabai -m space --focus prev || yabai -m space --focus last
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus east || yabai -m space --focus next || yabai -m space --focus first
+cmd + ctrl - h : yabai -m window --focus west || yabai -m space --focus prev || yabai -m space --focus last
+cmd + ctrl - j : yabai -m window --focus south
+cmd + ctrl - k : yabai -m window --focus north
+cmd + ctrl - l : yabai -m window --focus east || yabai -m space --focus next || yabai -m space --focus first
 
 # swap window
 # cmd + ctrl - x : yabai -m window --swap recent
@@ -44,10 +39,10 @@ cmd + shift - k : yabai -m window --swap north
 cmd + shift - l : yabai -m window --swap east
 
 # move window
-cmd + ctrl - h : yabai -m window --warp west
-cmd + ctrl - j : yabai -m window --warp south
-cmd + ctrl - k : yabai -m window --warp north
-cmd + ctrl - l : yabai -m window --warp east
+cmd + ctrl + shift - h : yabai -m window --warp west
+cmd + ctrl + shift - j : yabai -m window --warp south
+cmd + ctrl + shift - k : yabai -m window --warp north
+cmd + ctrl + shift - l : yabai -m window --warp east
 
 # create desktop, move window and follow focus - uses jq for parsing json
 cmd + shift - n : yabai -m space --create && \
@@ -76,7 +71,7 @@ cmd + shift - 0x2B : (yabai -m window --space prev && yabai -m space --focus pre
                 yabai -m window  --focus last
 
 # balance size of windows
-cmd - e : yabai -m space --balance
+cmd + ctrl - e : yabai -m space --balance
 
 # rotate tree
 cmd + ctrl - r : yabai -m space --rotate 270
@@ -88,10 +83,10 @@ cmd + ctrl - y : yabai -m space --mirror y-axis
 cmd + ctrl - x : yabai -m space --mirror x-axis
 
 # toggle window fullscreen zoom
-cmd - m : yabai -m window --toggle zoom-fullscreen
+cmd + ctrl - m : yabai -m window --toggle zoom-fullscreen
 
 # toggle window parent zoom
-cmd + ctrl - m : yabai -m window --toggle zoom-parent
+# cmd + ctrl - m : yabai -m window --toggle zoom-parent
 
 # toggle window native fullscreen
 # cmd + ctrl - m : yabai -m window --toggle native-fullscreen
