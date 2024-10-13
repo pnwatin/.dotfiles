@@ -57,6 +57,7 @@ zstyle ':completion:*' menu no
 eval "$(zoxide init zsh)"
 type starship_zle-keymap-select >/dev/null || eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
+source <(fzf --zsh)
 
 # ZVM env
 ZVM_VI_HIGHLIGHT_BACKGROUND=#45475a
@@ -140,6 +141,41 @@ function zvm_after_init() {
   zvm_bindkey viins '^F' vi-forward-word
   zvm_bindkey viins '^E' end-of-line
 }
+
+# FZF
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --strip-cwd-prefix --follow --exclude .git"
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --strip-cwd-prefix --exclude .git"
+
+_fzf_compgen_path() {
+  fd --type f --hidden --strip-cwd-prefix --follow --exclude .git . "$1"
+}
+
+_fzf_compgen_dir() {
+  fd --type d --hidden --strip-cwd-prefix --follow --exclude .git . "$1"
+}
+
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'lsd --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "bat -n --color=always {}" "$@" ;;
+  esac
+}
+
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#11111b,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--multi \
+--preview 'bat -n --color=always {}'"
 
 # Tmux at startup
 if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
