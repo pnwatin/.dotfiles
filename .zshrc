@@ -65,16 +65,6 @@ ZVM_VI_SURROUND_BINDKEY=s-prefix
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
 ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
 
-
-# Function to start nvim at the root dir if no path is specified
-function nvim() {
-    if [ $# -eq 0 ]; then
-        TERM=xterm-kitty command nvim .
-    else
-        TERM=xterm-kitty command nvim "$@"
-    fi
-}
-
 # Function to suspend vim
 function vim-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
