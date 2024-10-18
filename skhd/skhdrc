@@ -24,13 +24,11 @@ cmd - l [
 
 :: default : borders active_color=0xff89b4fa inactive_color=0xff11111b
 
-:: app @ : borders active_color=0xffa6e3a1 inactive_color=0xffa6e3a1;\
-           sleep 2 ;\
-           skhd -k "escape"
-
-app < escape ; default
+:: app @ : borders active_color=0xffa6e3a1 inactive_color=0xffa6e3a1
 
 cmd - a ; app
+
+app < escape ; default
 
 app < t : open -a 'kitty' ;\
           skhd -k "escape"
@@ -43,3 +41,8 @@ app < f : open -a 'Finder' ;\
 
 app < d : open -a 'Discord' ;\
           skhd -k "escape"
+
+alt - 1 : open -a 'kitty'
+alt - 2 : open -a 'Zen Browser'
+alt - 3 : open -a 'Discord'
+alt - 4 : open -a 'Finder'
