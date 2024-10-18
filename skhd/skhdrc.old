@@ -1,0 +1,95 @@
+# open terminal
+cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
+
+# use vim style delete previous word every where
+ctrl - w -> [ 
+  "kitty" : ~
+  *       : skhd -k "alt - backspace"
+]
+
+# use zsh style go to end of word
+ctrl - f -> [ 
+  "kitty" : ~
+  *       : skhd -k "alt - right"
+]
+
+# use vim style delete previous line every where
+ctrl - u -> [ 
+  "kitty" : ~
+  *       : skhd -k "cmd - backspace"
+]
+
+# fix firefox weird F6 keymap
+cmd - l [ 
+  "Firefox" : skhd -k "f6"
+  "Zen Browser" : skhd -k "f6"
+]
+
+# focus window
+cmd + ctrl - h : yabai -m window --focus west || yabai -m space --focus prev || yabai -m space --focus last
+cmd + ctrl - j : yabai -m window --focus south
+cmd + ctrl - k : yabai -m window --focus north
+cmd + ctrl - l : yabai -m window --focus east || yabai -m space --focus next || yabai -m space --focus first
+
+# swap window
+# cmd + ctrl - x : yabai -m window --swap recent
+cmd + shift - h : yabai -m window --swap west
+cmd + shift - j : yabai -m window --swap south
+cmd + shift - k : yabai -m window --swap north
+cmd + shift - l : yabai -m window --swap east
+
+# move window
+cmd + ctrl + shift - h : yabai -m window --warp west
+cmd + ctrl + shift - j : yabai -m window --warp south
+cmd + ctrl + shift - k : yabai -m window --warp north
+cmd + ctrl + shift - l : yabai -m window --warp east
+
+# create desktop, move window and follow focus - uses jq for parsing json
+cmd + shift - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+                  yabai -m window --space "${index}" && \
+                  yabai -m space --focus "${index}"
+
+# create desktop and follow focus - uses jq for parsing json
+cmd + ctrl - n : yabai -m space --create && \
+                index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+                yabai -m space --focus "${index}"
+
+# destroy desktop
+cmd + ctrl - w : yabai -m space --destroy
+
+# focus spaces
+cmd - 0x2F: yabai -m space --focus next || yabai -m space --focus first
+cmd - 0x2B: yabai -m space --focus prev || yabai -m space --focus last
+
+# move window to spaces
+cmd + shift - 0x2F : (yabai -m window --space next && yabai -m space --focus next) || \
+                (yabai -m window --space first && yabai -m space --focus first) && \
+                yabai -m window  --focus last
+cmd + shift - 0x2B : (yabai -m window --space prev && yabai -m space --focus prev) || \
+                (yabai -m window --space last && yabai -m space --focus last) && \
+                yabai -m window  --focus last
+
+# balance size of windows
+cmd + ctrl - e : yabai -m space --balance
+
+# rotate tree
+cmd + ctrl - r : yabai -m space --rotate 270
+
+# mirror tree y-axis
+cmd + ctrl - y : yabai -m space --mirror y-axis
+
+# mirror tree x-axis
+cmd + ctrl - x : yabai -m space --mirror x-axis
+
+# toggle window fullscreen zoom
+cmd + ctrl - m : yabai -m window --toggle zoom-fullscreen
+
+# toggle window parent zoom
+# cmd + ctrl - m : yabai -m window --toggle zoom-parent
+
+# toggle window native fullscreen
+# cmd + ctrl - m : yabai -m window --toggle native-fullscreen
+
+# float / unfloat window and restore position
+cmd + ctrl - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
