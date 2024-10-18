@@ -29,6 +29,7 @@ cmd - l [
            skhd -k "escape"
 
 app < escape ; default
+
 cmd - a ; app
 
 app < t : open -a 'kitty' ;\
