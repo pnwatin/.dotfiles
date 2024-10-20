@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # global settings
 yabai -m config \
@@ -12,13 +12,12 @@ yabai -m config \
 
 echo "yabai config loaded..."
 
-
 options=(
-	style=round
-	width=6.0
-	hidpi=on
-	active_color=0xff89b4fa
-	inactive_color=0xff11111b
+  style=round
+  width=6.0
+  hidpi=on
+  active_color=0xff89b4fa
+  inactive_color=0xff11111b
   blur_radius=0.0
 )
 
