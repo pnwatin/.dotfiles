@@ -48,6 +48,9 @@ app < f : open -a 'Finder' ;\
 app < d : open -a 'Discord' ;\
           skhd -k "escape"
 
+app < s : open -a 'Slack' ;\
+          skhd -k "escape"
+
 # , and . to cycle through window left or right
 app < 0x2B : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
 app < 0x2F : yabai -m window --focus stack.next || yabai -m window --focus stack.first
