@@ -72,7 +72,6 @@ function vim-ctrl-z () {
     zle accept-line -w
   else
     zle push-input -w
-    zle clear-screen -w
   fi
 }
 zle -N vim-ctrl-z
@@ -101,12 +100,6 @@ _o_completions() {
 
 compdef _o_completions o
 
-
-# Function to clear the screen (since i use ctrl-l in yabai i need to remap it to ctrl-x)
-function clear-screen() {
-  tput clear
-}
-
 # Aliases
 alias gg='lazygit'
 alias ls='lsd'
@@ -115,7 +108,6 @@ alias vim="nvim"
 alias v="nvim"
 alias cat="bat"
 alias g="git"
-alias c='clear'
 alias ..='cd ..'
 
 # Keymaps
@@ -124,7 +116,6 @@ bindkey "^Z" vim-ctrl-z
 bindkey "^F" vi-forward-word
 bindkey "^N" history-search-forward
 bindkey "^P" history-search-backward
-bindkey "^X" clear-screen
 
 # Fix for zvm keybindings
 function zvm_after_init() {
