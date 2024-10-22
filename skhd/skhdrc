@@ -36,7 +36,7 @@ app < ctrl - 0x21 ; default
 app < escape ; default
 
 # app mode shortcuts to open apps
-app < t : open -a 'kitty' ;\
+app < t : open -a 'Ghostty' ;\
           skhd -k "escape"
 
 app < b : open -a 'Zen Browser' ;\

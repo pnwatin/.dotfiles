@@ -10,6 +10,9 @@ quit-after-last-window-closed = true
 
 macos-option-as-alt = right
 
+window-title-font-family = JetBrainsMono Nerd Font Mono
+macos-titlebar-style = tabs
+
 # split navigation
 keybind = cmd+h=goto_split:left
 keybind = cmd+l=goto_split:right
@@ -21,3 +24,4 @@ keybind = cmd+shift+h=resize_split:left,20
 keybind = cmd+shift+l=resize_split:right,20
 keybind = cmd+shift+k=resize_split:up,20
 keybind = cmd+shift+j=resize_split:down,20
+keybind = cmd+shift+e=equalize_splits
