@@ -150,8 +150,3 @@ export FZF_CTRL_T_OPTS="\
 --preview 'bat -n --color=always {}'"
 export FZF_ALT_C_OPTS="\
 --preview 'lsd --tree --color=always {} | head -200'"
-
-# Tmux at startup
-if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
-  tmux attach || tmux;
-fi
