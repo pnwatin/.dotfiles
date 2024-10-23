@@ -35,6 +35,7 @@ cmd - 0x29 ; app
 
 # cmd - escape to go back to default mode
 app < escape ; default
+app < ctrl - 0x21 ; default
 
 # app mode shortcuts to open apps
 app < t : open -a 'Ghostty' ;\

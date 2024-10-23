@@ -24,7 +24,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit light jeffreytse/zsh-vi-mode
 
 # Add in snippets
 zinit snippet OMZP::gitfast
@@ -58,12 +57,6 @@ eval "$(zoxide init zsh)"
 type starship_zle-keymap-select >/dev/null || eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
 source <(fzf --zsh)
-
-# ZVM env
-ZVM_VI_HIGHLIGHT_BACKGROUND=#45475a
-ZVM_VI_SURROUND_BINDKEY=s-prefix
-ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
-ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
 
 # Function to suspend vim
 function vim-ctrl-z () {
@@ -116,12 +109,6 @@ bindkey "^Z" vim-ctrl-z
 bindkey "^F" vi-forward-word
 bindkey "^N" history-search-forward
 bindkey "^P" history-search-backward
-
-# Fix for zvm keybindings
-function zvm_after_init() {
-  zvm_bindkey viins '^F' vi-forward-word
-  zvm_bindkey viins '^E' end-of-line
-}
 
 # FZF
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --strip-cwd-prefix --follow --exclude .git"
