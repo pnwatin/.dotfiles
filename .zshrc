@@ -106,7 +106,7 @@ alias ..='cd ..'
 # Keymaps
 bindkey "^E" end-of-line
 bindkey "^Z" vim-ctrl-z
-bindkey "^F" vi-forward-word
+bindkey "^F" forward-word
 bindkey "^N" history-search-forward
 bindkey "^P" history-search-backward
 

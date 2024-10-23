@@ -1,18 +1,21 @@
 # use vim style delete previous word every where
 ctrl - w -> [ 
   "kitty" : ~
+  "Ghostty" : ~
   *       : skhd -k "alt - backspace"
 ]
 
 # use zsh style go to end of word
 ctrl - f -> [ 
   "kitty" : ~
+  "Ghostty" : ~
   *       : skhd -k "alt - right"
 ]
 
 # use vim style delete previous line every where
 ctrl - u -> [ 
   "kitty" : ~
+  "Ghostty" : ~
   *       : skhd -k "cmd - backspace"
 ]
 
