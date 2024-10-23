@@ -22,6 +22,8 @@ cmd - l [
   "Zen Browser" : skhd -k "f6"
 ]
 
+ctrl - 0x21 : skhd -k "escape"
+
 # default mode with borders color reset
 :: default : borders active_color=0xff89b4fa inactive_color=0xff11111b
 
@@ -31,8 +33,7 @@ cmd - l [
 # cmd - ; to enter app mode
 cmd - 0x29 ; app
 
-# cmd - escape (and ctrl - [) to go back to default mode
-app < ctrl - 0x21 ; default
+# cmd - escape to go back to default mode
 app < escape ; default
 
 # app mode shortcuts to open apps
