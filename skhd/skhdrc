@@ -1,3 +1,13 @@
+# map ctrl + [ to escape
+ctrl - 0x21 : skhd -k "escape"
+
+# open applications
+alt - t : open -a "Ghostty"
+alt - b : open -a "Zen Browser"
+alt - d : open -a "Discord"
+alt - s : open -a "Slack"
+alt - f : open -a "Finder"
+
 # use vim style delete previous word every where
 ctrl - w -> [ 
   "kitty" : ~
@@ -24,38 +34,3 @@ cmd - l [
   "Firefox" : skhd -k "f6"
   "Zen Browser" : skhd -k "f6"
 ]
-
-ctrl - 0x21 : skhd -k "escape"
-
-# default mode with borders color reset
-:: default : borders active_color=0xff89b4fa inactive_color=0xff11111b
-
-# app mode with borders color indicator
-:: app @ : borders active_color=0xffa6e3a1 inactive_color=0xffa6e3a1
-
-# cmd - ; to enter app mode
-cmd - 0x29 ; app
-
-# cmd - escape to go back to default mode
-app < escape ; default
-app < ctrl - 0x21 ; default
-
-# app mode shortcuts to open apps
-app < t : open -a 'Ghostty' ;\
-          skhd -k "escape"
-
-app < b : open -a 'Zen Browser' ;\
-          skhd -k "escape"
-
-app < f : open -a 'Finder' ;\
-          skhd -k "escape"
-
-app < d : open -a 'Discord' ;\
-          skhd -k "escape"
-
-app < s : open -a 'Slack' ;\
-          skhd -k "escape"
-
-# , and . to cycle through window left or right
-app < 0x2B : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
-app < 0x2F : yabai -m window --focus stack.next || yabai -m window --focus stack.first
