@@ -19,6 +19,7 @@ export LS_COLORS="$(vivid generate catppuccin-mocha)"
 export EDITOR='nvim'
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH="$HOME/bin:$PATH"
 
 # Add in zsh plugins
 zinit light zdharma-continuum/fast-syntax-highlighting
