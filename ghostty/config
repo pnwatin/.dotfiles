@@ -32,3 +32,4 @@ keybind = cmd+shift+k=resize_split:up,20
 keybind = cmd+shift+j=resize_split:down,20
 keybind = cmd+shift+e=equalize_splits
 keybind = ctrl+x=clear_screen
+keybind = global:alt+q=toggle_quick_terminal
