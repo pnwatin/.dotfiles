@@ -59,6 +59,35 @@ type starship_zle-keymap-select >/dev/null || eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
 source <(fzf --zsh)
 
+# Function to edit current prompt (or previous one if the current is empty) in neovim
+function edit-command-in-nvim {
+  local tmpfile=$(mktemp)
+
+  if [[ -z "$BUFFER" ]]; then
+    BUFFER=$(fc -ln -1)
+  fi
+
+  {
+    echo "# Temporary Zsh command buffer"
+    echo "# Edit this buffer to modify your command and save to update the prompt"
+    echo "# To run the command after editing, save and quit (e.g., :wq)"
+    echo "# Lines starting with # will be ignored when returning to the prompt"
+    echo "# --------------------"
+    print -r -- "$BUFFER"
+  } > $tmpfile
+
+  nvim -c 'set filetype=zsh' -c 'normal! G$' $tmpfile
+
+  local new_command=$(grep -v '^#' $tmpfile)
+
+  rm $tmpfile
+
+  BUFFER="$new_command"
+  CURSOR=${#BUFFER}
+  zle redisplay
+}
+zle -N edit-command-in-nvim
+
 # Function to suspend vim
 function vim-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -105,6 +134,7 @@ alias g="git"
 alias ..='cd ..'
 
 # Keymaps
+bindkey "^[e" edit-command-in-nvim
 bindkey "^E" end-of-line
 bindkey "^Z" vim-ctrl-z
 bindkey "^F" forward-word
@@ -113,11 +143,8 @@ bindkey "^P" history-search-backward
 
 # FZF
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --strip-cwd-prefix --follow --exclude .git"
-
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --strip-cwd-prefix --exclude .git"
-
 export FZF_COMPLETION_TRIGGER='??'
 
 _fzf_compgen_path() {
@@ -146,7 +173,6 @@ export FZF_DEFAULT_OPTS="\
 --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
 --color=selected-bg:#45475a \
 --multi"
-
 export FZF_CTRL_T_OPTS="\
 --preview 'bat -n --color=always {}'"
 export FZF_ALT_C_OPTS="\
