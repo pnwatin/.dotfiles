@@ -2,38 +2,19 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Set the directory we want to store zinit and plugins
-ZINIT_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit"
-ZINIT_HOME="$ZINIT_ROOT/zinit.git"
-
-# Download Zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-
-# Source/Load zinit
-source "${ZINIT_HOME}/zinit.zsh"
-
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
 export EDITOR='nvim'
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="$HOME/bin:$PATH"
 
-# Add in zsh plugins
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-
-# Add in snippets
-zinit snippet OMZP::gitfast
-zinit snippet OMZP::git-auto-fetch
+# Source zsh plugins
+source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-completions
 
 # Load completions
 autoload -Uz compinit && compinit
-
-zinit cdreplay -q
 
 # History
 HISTSIZE=10000
@@ -55,7 +36,7 @@ zstyle ':completion:*' menu no
 
 # Shell integrations
 eval "$(zoxide init zsh)"
-type starship_zle-keymap-select >/dev/null || eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
 source <(fzf --zsh)
 
@@ -105,24 +86,6 @@ function dstop() {
   osascript -e 'tell application "System Events" to tell process "Docker Desktop" to click menu item "Quit Docker Desktop" of menu 1 of menu bar item "Docker Desktop" of menu bar 1' >/dev/null 2>&1
 }
 
-# Function to open any app from the terminal
-function o() {
-    local app="$1"
-    if [[ -z "$app" ]]; then
-        echo "Usage: o <Application>"
-    else
-        open -a "/Applications/$app.app"
-    fi
-}
-
-_o_completions() {
-    local apps
-    apps=(${(f)"$(ls /Applications | sed 's/\.app$//')"})
-    _describe 'applications' apps
-}
-
-compdef _o_completions o
-
 # Aliases
 alias gg='lazygit'
 alias ls='lsd'
@@ -132,6 +95,8 @@ alias v="nvim"
 alias cat="bat"
 alias g="git"
 alias ..='cd ..'
+alias x='exit'
+alias c='clear'
 
 # Keymaps
 bindkey "^[e" edit-command-in-nvim

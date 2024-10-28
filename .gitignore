@@ -2,7 +2,7 @@
 
 !bat/
 !btop/
-!defaults/
+!fsh/
 !ghostty/
 !git-delta/
 !keyboards/
@@ -10,7 +10,6 @@
 !nvim/
 !skhd/
 !yabai/
-!.tmux.conf
 !.zshrc
 !starship.toml
 !.gitconfig

@@ -15,9 +15,6 @@ $line_break\
 $character"""
 
 [directory]
-truncation_length = 3
-# truncation_symbol = "~/../"
-truncate_to_repo = false
 style = "blue bold"
 
 [git_branch]
