@@ -37,11 +37,6 @@ sort = -committerdate
 [interactive]
 diffFilter = delta --color-only
 
-[delta]
-features = catppuccin-mocha
-navigate = true
-side-by-side = true
-dark = true
 
 [merge]
 conflictstyle = diff3
@@ -103,8 +98,11 @@ recurseSubmodules = on-demand # Auto-fetch submodule changes
 [interactive]
 diffFilter = delta --color-only
 
+[include]
+	path = /Users/nico/.config/git-delta/themes/catppuccin.gitconfig
+
 [delta]
-features = side-by-side line-numbers decorations
+features = side-by-side line-numbers decorations catppuccin-mocha
 whitespace-error-style = 22 reverse
 
 [delta "decorations"]
