@@ -71,8 +71,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // Left-hand
 // #define CTL_HASH MT(MOD_LCTL, KC_HASH)
 // #define ALT_DLR MT(MOD_LALT, KC_DLR)
-#define GUI_LCBR LGUI_T(KC_LCBR)
-#define SFT_RCBR LSFT_T(KC_RCBR)
+#define GUI_LBRC LGUI_T(KC_LBRC)
+#define SFT_RBRC LSFT_T(KC_RBRC)
 
 // Right-hand
 #define SFT_4 RSFT_T(KC_4)
@@ -80,7 +80,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define ALT_6 LALT_T(KC_6)
 #define CTL_QUOT RCTL_T(KC_QUOT)
 
-#define RALT_DEL RALT_T(KC_SPC)
+#define RALT_DEL RALT_T(KC_DEL)
 
 #define NAV_ESC LT(1, KC_ESC)
 #define NUM_TAB LT(2, KC_TAB)
@@ -119,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        XXXXXXX, KC_EXLM,   KC_AT, KC_LPRN, KC_RPRN, KC_AMPR,                      KC_PLUS,    KC_7,    KC_8,    KC_9, KC_ASTR, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX,CTL_HASH, ALT_DLR,GUI_LCBR,SFT_RCBR,  KC_GRV,                       KC_EQL,   SFT_4,   GUI_5,   ALT_6,CTL_QUOT, XXXXXXX,
+       XXXXXXX,CTL_HASH, ALT_DLR,GUI_LBRC,SFT_RBRC,  KC_GRV,                       KC_EQL,   SFT_4,   GUI_5,   ALT_6,CTL_QUOT, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX, KC_PERC, KC_CIRC, KC_LCBR, KC_RCBR, KC_PIPE,                      KC_MINS,    KC_1,    KC_2,    KC_3, KC_BSLS, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
