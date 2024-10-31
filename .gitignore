@@ -1,6 +1,7 @@
 /*
 
 !bat/
+!borders/
 !btop/
 !fsh/
 !ghostty/
@@ -9,7 +10,6 @@
 !kitty/
 !nvim/
 !skhd/
-!yabai/
 !.zshrc
 !starship.toml
 !.gitconfig
