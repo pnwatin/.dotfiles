@@ -26,11 +26,10 @@ keybind = cmd+j=goto_split:bottom
 keybind = cmd+k=goto_split:top
 
 # resize
-keybind = cmd+shift+h=resize_split:left,20
-keybind = cmd+shift+l=resize_split:right,20
-keybind = cmd+shift+k=resize_split:up,20
-keybind = cmd+shift+j=resize_split:down,20
-keybind = cmd+shift+e=equalize_splits
+keybind = cmd+ctrl+h=resize_split:left,20
+keybind = cmd+ctrl+l=resize_split:right,20
+keybind = cmd+ctrl+k=resize_split:up,20
+keybind = cmd+ctrl+j=resize_split:down,20
+keybind = cmd+ctrl+e=equalize_splits
 keybind = cmd+enter=toggle_split_zoom
 keybind = ctrl+x=clear_screen
-keybind = global:alt+q=toggle_quick_terminal
