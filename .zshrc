@@ -145,9 +145,9 @@ alias v="nvim"
 alias cat="bat"
 alias g="git"
 alias ..='cd ..'
-alias x='exit'
-alias c='clear'
-
+alias q='exit'
+alias x='clear'
+alias vp='NVIM_APPNAME="nvim-primeagen" nvim'
 # Keymaps
 bindkey "^[e" edit-command-in-nvim
 bindkey "^E" end-of-line
