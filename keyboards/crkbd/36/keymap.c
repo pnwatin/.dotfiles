@@ -46,6 +46,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SYM_TAB LT(1, KC_TAB)
 #define NAV_SPC LT(2, KC_SPC)
 #define FN_DEL LT(3, KC_DEL)
+#define ALT_ENT RALT_T(KC_ENT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // BASE layer ✅
@@ -57,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                            KC_ESC, SYM_TAB, NAV_SPC,     KC_ENT, KC_BSPC,  FN_DEL
+                                            KC_ESC, SYM_TAB, NAV_SPC,    ALT_ENT, KC_BSPC,  FN_DEL
                                        //`--------------------------'  `--------------------------'
    ),
 
@@ -72,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                      KC_UNDS, KC_PLUS,  KC_GRV, KC_LCBR, KC_RCBR, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           XXXXXXX, _______, XXXXXXX,     KC_ENT, KC_PIPE, KC_BSLS
+                                           XXXXXXX, _______, XXXXXXX,    ALT_ENT, KC_PIPE, KC_BSLS
                                        //`--------------------------'  `--------------------------'
     ),
 
@@ -85,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           XXXXXXX, XXXXXXX, _______,     KC_ENT, KC_BSPC,  KC_DEL
+                                           XXXXXXX, XXXXXXX, _______,    ALT_ENT, KC_BSPC,  KC_DEL
                                        //`--------------------------'  `--------------------------'
     ),
 
