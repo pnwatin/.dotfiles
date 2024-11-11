@@ -13,7 +13,6 @@ source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlight
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-completions
 
-
 # History
 HISTSIZE=10000
 HISTFILE=~/.zsh_history
