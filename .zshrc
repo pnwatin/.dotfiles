@@ -7,6 +7,7 @@ export EDITOR='nvim'
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="$HOME/bin:$PATH"
+export MANPAGER='nvim +Man!'
 
 # Source zsh plugins
 source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
@@ -146,6 +147,7 @@ alias g="git"
 alias ..='cd ..'
 alias q='exit'
 alias x='clear'
+alias man='MANWIDTH=$((COLUMNS > 80 ? 80 : COLUMNS)) man'
 
 # Keymaps
 bindkey "^[e" edit-command-in-nvim
