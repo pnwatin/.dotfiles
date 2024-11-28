@@ -31,9 +31,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CTL_QUO RCTL_T(KC_QUOT)
 
 // Thumbs keys
-#define SYM_ESC LT(3, KC_ESC)
-#define NUM_TAB LT(2, KC_TAB)
-#define NAV_SPC LT(1, KC_SPC)
+#define NUM_ESC LT(1, KC_ESC)
+#define SYM_TAB LT(2, KC_TAB)
+#define NAV_SPC LT(3, KC_SPC)
 
 #define ALT_ENT RALT_T(KC_ENT)
 #define FN_DEL LT(4, KC_DEL)
@@ -48,25 +48,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           SYM_ESC, NUM_TAB, NAV_SPC,    ALT_ENT, KC_BSPC,  FN_DEL
+                                           NUM_ESC, SYM_TAB, NAV_SPC,    ALT_ENT, KC_BSPC,  FN_DEL
                                        //`--------------------------'  `--------------------------'
    ),
 
-  // NAV layer ✅
-  [1] = LAYOUT_split_3x6_3(
-   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, CW_TOGG,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
-   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, XXXXXXX,
-   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           XXXXXXX, XXXXXXX, _______,    ALT_ENT, KC_BSPC,  KC_DEL
-                                       //`--------------------------'  `--------------------------'
-    ),
-
   // NUM layer ✅
-  [2] = LAYOUT_split_3x6_3(
+  [1] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_LBRC,   KC_7,     KC_8,    KC_9, KC_RBRC, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -74,12 +61,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_BSLS,    KC_1,    KC_2,    KC_3,  KC_GRV, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           XXXXXXX, _______, XXXXXXX,    KC_MINS,    KC_0,  KC_DOT
+                                           XXXXXXX, XXXXXXX, _______,    KC_MINS,    KC_0,  KC_DOT
                                        //`--------------------------'  `--------------------------'
     ),
 
   // SYM layer ✅
-  [3] = LAYOUT_split_3x6_3(
+  [2] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -87,7 +74,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PIPE, KC_EXLM,   KC_AT, KC_HASH, KC_TILD, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           _______, XXXXXXX, XXXXXXX,    KC_UNDS, KC_LPRN, KC_RPRN
+                                           XXXXXXX, _______, XXXXXXX,    KC_UNDS, KC_LPRN, KC_RPRN
+                                       //`--------------------------'  `--------------------------'
+    ),
+
+  // NAV layer ✅
+  [3] = LAYOUT_split_3x6_3(
+   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+       XXXXXXX, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, CW_TOGG,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
+   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, XXXXXXX,
+   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                           _______, XXXXXXX, XXXXXXX,    ALT_ENT, KC_BSPC,  KC_DEL
                                        //`--------------------------'  `--------------------------'
     ),
 
