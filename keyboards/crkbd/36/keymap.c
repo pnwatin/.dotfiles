@@ -43,10 +43,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CTL_QUOT RCTL_T(KC_QUOT)
 
 // Thumbs keys
+#define ALT_ESC RALT_T(KC_ESC)
 #define SYM_TAB LT(1, KC_TAB)
 #define NAV_SPC LT(2, KC_SPC)
 
-#define ALT_ENT RALT_T(KC_ENT)
+#define HYP_ENT HYPR_T(KC_ENT)
+#define SYM_BSP LT(1, KC_BSPC)
 #define FN_DEL LT(3, KC_DEL)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -59,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                            KC_ESC, SYM_TAB, NAV_SPC,    ALT_ENT, KC_BSPC,  FN_DEL
+                                           ALT_ESC, SYM_TAB, NAV_SPC,    HYP_ENT, SYM_BSP,  FN_DEL
                                        //`--------------------------'  `--------------------------'
    ),
 
@@ -72,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                      KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR,  KC_GRV, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           XXXXXXX, _______, XXXXXXX,    ALT_ENT, KC_PIPE, KC_BSLS
+                                           ALT_ESC,  KC_TAB,  KC_SPC,    HYP_ENT, KC_PIPE, KC_BSLS
                                        //`--------------------------'  `--------------------------'
     ),
 
@@ -85,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           XXXXXXX, XXXXXXX, _______,    ALT_ENT, KC_BSPC,  KC_DEL
+                                           XXXXXXX, XXXXXXX, _______,    HYP_ENT, KC_BSPC,  KC_DEL
                                        //`--------------------------'  `--------------------------'
     ),
 
@@ -98,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX, QK_BOOT, KC_BRID, KC_BRIU, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           KC_MSTP, KC_MPLY, KC_MUTE,    XXXXXXX, XXXXXXX, _______
+                                           KC_MSTP, KC_MUTE, KC_MPLY,    XXXXXXX, XXXXXXX, _______
                                       //``--------------------------'  `--------------------------'
     ),
 };
