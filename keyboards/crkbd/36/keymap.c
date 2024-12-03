@@ -38,9 +38,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SFT_4 LSFT_T(KC_4)
 // Right-hand
 #define SFT_EQL RSFT_T(KC_EQL)
-#define GUI_LRBC RGUI_T(KC_LBRC)
-#define ALT_RBRC LALT_T(KC_RBRC)
-#define CTL_QUOT RCTL_T(KC_QUOT)
+#define GUI_GRV RGUI_T(KC_GRV)
+#define ALT_LBRC LALT_T(KC_LBRC)
+#define CTL_RBRC CTL_T(KC_RBRC)
 
 // Thumbs keys
 #define ALT_ESC RALT_T(KC_ESC)
@@ -49,7 +49,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define HYP_ENT HYPR_T(KC_ENT)
 #define SYM_BSP LT(1, KC_BSPC)
-#define FN_DEL LT(3, KC_DEL)
+#define FN_QUOT LT(3, KC_QUOT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // BASE layer ✅
@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           ALT_ESC, SYM_TAB, NAV_SPC,    HYP_ENT, SYM_BSP,  FN_DEL
+                                           ALT_ESC, SYM_TAB, NAV_SPC,    HYP_ENT, SYM_BSP, FN_QUOT
                                        //`--------------------------'  `--------------------------'
    ),
 
@@ -70,11 +70,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        XXXXXXX, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX,   CTL_1,   ALT_2,   GUI_3,   SFT_4,    KC_5,                      KC_MINS, SFT_EQL,GUI_LRBC,ALT_RBRC,CTL_QUOT, XXXXXXX,
+       XXXXXXX,   CTL_1,   ALT_2,   GUI_3,   SFT_4,    KC_5,                      KC_MINS, SFT_EQL, GUI_GRV,ALT_LBRC,CTL_RBRC, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                      KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR,  KC_GRV, XXXXXXX,
+       XXXXXXX,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                      KC_UNDS, KC_PLUS, KC_BSLS, KC_LCBR, KC_RCBR, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           ALT_ESC,  KC_TAB,  KC_SPC,    HYP_ENT, KC_PIPE, KC_BSLS
+                                           ALT_ESC,  KC_TAB,  KC_SPC,    KC_PIPE, KC_BSPC, KC_DQUO
                                        //`--------------------------'  `--------------------------'
     ),
 
