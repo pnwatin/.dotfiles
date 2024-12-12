@@ -155,3 +155,4 @@ bindkey "^Z" vim-ctrl-z
 bindkey "^F" forward-word
 bindkey "^N" history-search-forward
 bindkey "^P" history-search-backward
+bindkey -r '\e'
