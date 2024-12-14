@@ -168,4 +168,30 @@ prereleaseSuffix = -rc
 prereleaseSuffix = .rc
 
 [alias]
+# gh extras
 open = "!gh repo view --web --branch $(git rev-parse --abbrev-ref HEAD)"
+
+# switch branches
+o = switch
+ob = switch -
+on = checkout -b 
+om = switch main
+od = switch dev
+opr = "!f() { gh pr checkout $1; }; f"
+
+# status
+s = status
+
+# add
+a = add
+aa = add -all
+ai = add --interactive
+
+# commit
+c = commit
+
+# push
+ps = push
+
+# pull
+pl = pull
