@@ -184,11 +184,12 @@ s = status
 
 # add
 a = add
-aa = add -all
+aa = add --all
 ai = add --interactive
 
 # commit
 c = commit
+cm = commit --message 
 
 # push
 ps = push
