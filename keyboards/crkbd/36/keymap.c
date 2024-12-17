@@ -124,6 +124,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
                 tap_code16(tap_hold->tap);
             }
+            break;
         case TD(MIUN): {
             if (is_caps_word_on()) {
                 if (!record->event.pressed) {
@@ -138,6 +139,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
                 tap_code16(tap_hold->tap);
             }
+            break;
         }
         case MDI_CWT:
             if (record->tap.count && record->event.pressed) {
