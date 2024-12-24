@@ -29,9 +29,3 @@ ctrl - u -> [
   "Ghostty" : ~
   *       : skhd -k "cmd - backspace"
 ]
-
-# fix firefox weird F6 keymap
-cmd - l [ 
-  "Firefox" : skhd -k "f6"
-  "Zen Browser" : skhd -k "f6"
-]
