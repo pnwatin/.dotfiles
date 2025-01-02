@@ -123,9 +123,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX,    CTLA,    ALTR,    GUIS,    SFTT,    KC_G,                         KC_M,    SFTN,    GUIE,    ALTI,    CTLO, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        XXXXXXX,   RALTZ,    KC_X,    KC_C,    NUMD,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_UNDS, XXXXXXX,
+       XXXXXXX,   RALTZ,    KC_X,    KC_C,    NUMD,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_UNDS, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                            XXXXXXX, LSYMESC,  NAVSPC,     EXTENT, RSYMBSP, XXXXXXX
+                                           XXXXXXX, LSYMESC,  NAVSPC,     EXTENT, RSYMBSP, XXXXXXX
                                        //`--------------------------'  `--------------------------'
    ),
 
@@ -158,11 +158,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // LSYM layer ✅
   [3] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, CW_TOGG, XXXXXXX,                      KC_AMPR, TD(ARR), KC_RBRC, KC_LBRC, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, CW_TOGG, XXXXXXX,                      KC_AMPR, TD(ARR), KC_LBRC, KC_RBRC, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, XXXXXXX,                      KC_PIPE, KC_COLN, KC_RPRN, KC_LPRN, KC_SCLN, XXXXXXX,
+       XXXXXXX, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, XXXXXXX,                      KC_PIPE, KC_COLN, KC_LPRN, KC_RPRN, KC_SCLN, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_GRV,  KC_DLR, KC_RCBR, KC_LCBR, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_GRV,  KC_DLR, KC_LCBR, KC_RCBR, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                            XXXXXXX, _______, XXXXXXX,     KC_ENT, KC_BSPC, XXXXXXX
                                        //`--------------------------'  `--------------------------'
@@ -171,11 +171,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // RSYM layer ✅
   [4] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       XXXXXXX, XXXXXXX, KC_LABK, KC_RABK, KC_BSLS, KC_PERC,                      XXXXXXX, CW_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, KC_LABK, KC_RABK, KC_SLSH, KC_PERC,                      XXXXXXX, CW_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, KC_EXLM, KC_MINS, KC_PLUS,  KC_EQL, KC_HASH,                      XXXXXXX, KC_RSFT, KC_RGUI, KC_LALT, KC_RCTL, XXXXXXX,
+       XXXXXXX, KC_EXLM, KC_PLUS, KC_MINS,  KC_EQL, KC_HASH,                      XXXXXXX, KC_RSFT, KC_RGUI, KC_LALT, KC_RCTL, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, XXXXXXX, KC_SLSH, KC_ASTR, KC_CIRC, KC_TILD,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, KC_BSLS, KC_ASTR, KC_CIRC, KC_TILD,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                            XXXXXXX,  KC_ESC,  KC_SPC,    XXXXXXX, _______, XXXXXXX
                                        //`--------------------------'  `--------------------------'
