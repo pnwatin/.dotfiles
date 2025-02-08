@@ -196,3 +196,6 @@ ps = push
 
 # pull
 pl = pull
+
+# merge
+m = merge
