@@ -2,12 +2,12 @@
 ctrl - 0x21 : skhd -k "escape"
 
 # open applications
-# alt - t : open -a "Ghostty"
-# alt - b : open -a "Zen Browser"
-# alt - d : open -a "Discord"
-# alt - s : open -a "Slack"
-# alt - f : open -a "Finder"
-# alt - m : open -a "Mail"
+alt - t : open -a "Ghostty"
+alt - b : open -a "Zen Browser"
+alt - d : open -a "Discord"
+alt - s : open -a "Slack"
+alt - f : open -a "Finder"
+alt - m : open -a "Mail"
 
 # use vim style delete previous word every where
 ctrl - w -> [ 
