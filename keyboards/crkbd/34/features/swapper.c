@@ -2,7 +2,7 @@
 
 void update_swapper(
     bool *active,
-    uint16_t cmdish,
+    uint8_t mods,
     uint16_t tabish,
     uint16_t trigger,
     uint16_t keycode,
@@ -12,7 +12,7 @@ void update_swapper(
         if (record->event.pressed) {
             if (!*active) {
                 *active = true;
-                register_code(cmdish);
+                register_mods(mods);
             }
             register_code(tabish);
         } else {
@@ -20,7 +20,7 @@ void update_swapper(
             // Don't unregister cmdish until some other key is hit or released.
         }
     } else if (*active) {
-        unregister_code(cmdish);
+        unregister_mods(mods);
         *active = false;
     }
 }

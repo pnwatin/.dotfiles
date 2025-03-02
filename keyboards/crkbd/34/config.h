@@ -23,8 +23,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MASTER_LEFT
 
 #define QUICK_TAP_TERM 0
-#define TAPPING_TERM 180
+
+#define TAPPING_TERM 250
 #define TAPPING_TERM_PER_KEY
+#define CHORDAL_HOLD
 #define PERMISSIVE_HOLD
+
 #define LAYER_LOCK_IDLE_TIMEOUT 60000
 #define UNICODE_SELECTED_MODES UNICODE_MODE_MACOS

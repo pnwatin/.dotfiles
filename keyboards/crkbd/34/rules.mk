@@ -1,9 +1,17 @@
-CAPS_WORD_ENABLE = yes
-SEND_STRING_ENABLE = yes
-TAP_DANCE_ENABLE = yes
-COMBO_ENABLE = yes
 CONVERT_TO = rp2040_ce
-SRC += features/achordion.c
+
+CAPS_WORD_ENABLE = yes
+COMBO_ENABLE = yes
+LAYER_LOCK_ENABLE = yes
+
 SRC += features/custom_shift_keys.c
 SRC += features/swapper.c
-LAYER_LOCK_ENABLE = yes
+
+# optimisations
+LTO_ENABLE = yes
+CONSOLE_ENABLE = no
+COMMAND_ENABLE = no
+MOUSEKEY_ENABLE = no
+SPACE_CADET_ENABLE = no
+GRAVE_ESC_ENABLE = no
+MAGIC_ENABLE = no
