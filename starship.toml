@@ -15,7 +15,7 @@ $character"""
 
 [character]
 success_symbol = '[%](white)'
-error_symbol = '[%](red)'
+error_symbol = '[%](white)'
 
 [directory]
 style = "blue bold"
