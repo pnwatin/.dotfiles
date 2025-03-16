@@ -15,16 +15,15 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include QMK_KEYBOARD_H
 #include "features/custom_shift_keys.h"
 #include "features/swapper.h"
-#include QMK_KEYBOARD_H
 
 enum layers {
   BASE,
   NUM,
   NAV,
-  LSYM,
-  RSYM,
+  SYM,
   META
 };
 
@@ -35,22 +34,27 @@ enum custom_keycodes {
   CANCEL,
 };
 
+enum tap_dances {
+  TD_ARROWS
+};
+
 // HOMEROW
 #define HRM_A LCTL_T(KC_A)
-#define HRM_R LALT_T(KC_R)
+#define HRM_R LT(SYM, KC_R)
 #define HRM_S LGUI_T(KC_S)
-#define HRM_T LSFT_T(KC_T)
+#define HRM_T LSFT_T(KC_T )
+#define HRM_D LT(NUM, KC_D)
 
 #define HRM_N RSFT_T(KC_N)
 #define HRM_E RGUI_T(KC_E)
-#define HRM_I LALT_T(KC_I)
+#define HRM_I LT(SYM, KC_I)
 #define HRM_O RCTL_T(KC_O)
 
 // THUMBROW
-#define TRM_ESC LT(RSYM, KC_ESC)
+#define TRM_ESC LALT_T(KC_ESC)
 #define TRM_SPC LT(NAV, KC_SPC)
 
-#define TRM_BSPC LT(LSYM, KC_BSPC)
+#define TRM_BSPC RALT_T(KC_BSPC)
 #define TRM_ENT LT(META, KC_ENT)
 
 // TABS
@@ -58,11 +62,10 @@ enum custom_keycodes {
 #define LEFT_TAB C(S(KC_TAB))
 #define SFT_TAB S(KC_TAB)
 
-// WINDOWS MANAGEMENT
-#define WIN_MAX G(A(KC_ENT))
+// TAP DANCES
+#define ARROWS TD(TD_ARROWS)
 
 // OTHERS
-#define OS_RALT OSM(MOD_RALT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = LAYOUT_split_3x6_3(
@@ -71,62 +74,51 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX,   HRM_A,   HRM_R,   HRM_S,   HRM_T,    KC_G,                         KC_M,   HRM_N,   HRM_E,   HRM_I,   HRM_O, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_UNDS, XXXXXXX,
+       XXXXXXX,    KC_Z,    KC_X,    KC_C,   HRM_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_UNDS, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                            XXXXXXX, TRM_ESC, TRM_SPC,    TRM_ENT,TRM_BSPC, XXXXXXX
                                        //`--------------------------'  `--------------------------'
    ),
   [NUM] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         KC_J, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,    KC_7,    KC_8,    KC_9, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX,    KC_6,    KC_4,    KC_2,    KC_0, XXXXXXX,                      XXXXXXX,    KC_1,    KC_3,    KC_5,    KC_7, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         KC_0,    KC_1,    KC_2,    KC_3, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_8, XXXXXXX,                         KC_K,    KC_9, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,    KC_4,    KC_5,    KC_6, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           XXXXXXX, XXXXXXX,  KC_SPC,     CANCEL, KC_BSPC, XXXXXXX
+                                           XXXXXXX,  KC_ESC,  KC_SPC,    QK_LLCK, KC_BSPC, XXXXXXX
                                        //`--------------------------'  `--------------------------'
    ),
   [NAV] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, SW_LANG, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  SW_WIN, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     LEFT_TAB,  KC_TAB, SFT_TAB,RGHT_TAB, WIN_MAX, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     LEFT_TAB,  KC_TAB, SFT_TAB,RGHT_TAB, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           XXXXXXX, XXXXXXX, _______,     KC_TAB,  KC_DEL, XXXXXXX
+                                           XXXXXXX, XXXXXXX, _______,     KC_ENT,  KC_DEL, XXXXXXX
                                        //`--------------------------'  `--------------------------'
    ),
-  [LSYM] = LAYOUT_split_3x6_3(
+  [SYM] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       XXXXXXX, XXXXXXX, KC_LABK, KC_RABK, KC_MINS, KC_AMPR,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, KC_LABK, KC_RABK, KC_SLSH, KC_AMPR,                      KC_CIRC, KC_RCBR, KC_LCBR,  KC_DLR,  KC_GRV, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, KC_EXLM, KC_ASTR, KC_SLSH,  KC_EQL, KC_PIPE,                      XXXXXXX,    KC_1,    KC_3,    KC_5,    KC_7, XXXXXXX,
+       XXXXXXX, KC_EXLM, KC_ASTR, KC_MINS,  KC_EQL, KC_PIPE,                      KC_HASH, KC_RPRN, KC_LPRN,  ARROWS, KC_SCLN, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, KC_TILD, KC_PLUS, KC_LBRC, KC_RBRC, KC_PERC,                      XXXXXXX,    KC_9, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           XXXXXXX, _______, _______,    _______, _______, XXXXXXX
-                                       //`--------------------------'  `--------------------------'
-   ),
-  [RSYM] = LAYOUT_split_3x6_3(
-   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_CIRC, KC_RCBR, KC_LCBR,  KC_DLR,  KC_GRV, XXXXXXX,
-   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX,    KC_6,    KC_4,    KC_2,    KC_0, XXXXXXX,                      KC_HASH, KC_RPRN, KC_LPRN, KC_QUES, KC_SCLN, XXXXXXX,
-   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_8, XXXXXXX,                      KC_BSLS, KC_COLN, KC_COMM,  KC_DOT, KC_UNDS, XXXXXXX,
+       XXXXXXX, KC_TILD, KC_PLUS, KC_LBRC, KC_RBRC, KC_PERC,                      KC_BSLS, KC_COLN, KC_COMM,  KC_DOT, KC_UNDS, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                            XXXXXXX, _______, _______,    _______, _______, XXXXXXX
                                        //`--------------------------'  `--------------------------'
    ),
   [META] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       XXXXXXX, QK_BOOT, KC_BRID, KC_BRIU, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, QK_BOOT, XXXXXXX, KC_BRID, KC_BRIU, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, SW_LANG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                            XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX
                                        //`--------------------------'  `--------------------------'
@@ -138,14 +130,27 @@ bool sw_win_active = false;
 bool sw_lang_active = false;
 
 // COMBOS
+const uint16_t one_shot_shift[] PROGMEM = {TRM_SPC, TRM_ENT, COMBO_END};
 const uint16_t capsword[] PROGMEM = {HRM_T, HRM_N, COMBO_END};
-const uint16_t numword[] PROGMEM = {TRM_SPC, TRM_ENT, COMBO_END};
-const uint16_t os_ralt[] PROGMEM = {TRM_ESC, HRM_R, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(capsword, CW_TOGG),
-    COMBO(numword, NUMWORD),
-    COMBO(os_ralt, OS_RALT),
+    COMBO(one_shot_shift, OSM(MOD_LSFT)),
+};
+
+// TAP DANCES
+void dance_arrow(tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        SEND_STRING("-> ");
+    }
+
+    if (state->count == 2) {
+        SEND_STRING("=> ");
+    }
+}
+
+tap_dance_action_t tap_dance_actions[] = {
+    [TD_ARROWS] = ACTION_TAP_DANCE_FN(dance_arrow),
 };
 
 // CUSTOM SHIFT
@@ -168,68 +173,8 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
         case TRM_BSPC:
             return true;
     }
+
     return get_chordal_hold_default(tap_hold_record, other_record);
-}
-
-// NUMWORD
-static uint16_t num_word_timer;
-static bool _num_word_enabled = false;
-
-bool num_word_enabled(void) {
-    return _num_word_enabled;
-}
-
-void enable_num_word(void) {
-    _num_word_enabled = true;
-    layer_on(NUM);
-}
-
-void disable_num_word(void) {
-    _num_word_enabled = false;
-    layer_off(NUM);
-}
-
-void process_num_word_activation(const keyrecord_t *record) {
-    if (record->event.pressed) {
-        layer_on(NUM);
-        num_word_timer = timer_read();
-    } else {
-        if (timer_elapsed(num_word_timer) < TAPPING_TERM) {
-            _num_word_enabled = true;
-        } else {
-            layer_off(NUM);
-        }
-    }
-}
-bool process_num_word(uint16_t keycode, const keyrecord_t *record) {
-    if (!_num_word_enabled) return true;
-
-    switch (keycode) {
-        case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
-        case QK_TAP_DANCE ... QK_TAP_DANCE_MAX:
-            if (record->tap.count == 0)
-                return true;
-            keycode = keycode & 0xFF;
-    }
-
-    switch (keycode) {
-        case KC_1 ... KC_0:
-        case KC_BSPC:
-        case KC_SPC:
-        case XXXXXXX:
-            break;
-        case CANCEL:
-            if (record->event.pressed) {
-                disable_num_word();
-            }
-            return false;
-        default:
-            if (record->event.pressed) {
-                disable_num_word();
-            }
-    }
-    return true;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -242,14 +187,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         keycode, record
     );
 
-    if (!process_num_word(keycode, record)) { return false; }
-
     if (!process_custom_shift_keys(keycode, record)) { return false; }
 
     switch (keycode) {
-        case NUMWORD:
-            process_num_word_activation(record);
-            return false;
     }
 
     return true;
