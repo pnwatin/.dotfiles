@@ -7,6 +7,7 @@ export EDITOR='nvim'
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export MANPAGER='nvim +Man!'
 
 # Source zsh plugins
