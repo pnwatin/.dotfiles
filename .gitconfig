@@ -171,7 +171,13 @@ prereleaseSuffix = .rc
 # gh extras
 open = "!gh repo view --web --branch $(git rev-parse --abbrev-ref HEAD)"
 
-# switch branches
+# branches
+b = branch
+
+# fetch
+f = fetch
+
+# switch & checkout
 o = switch
 ob = switch -
 on = checkout -b 
