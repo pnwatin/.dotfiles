@@ -94,10 +94,16 @@ autoload -Uz compinit && compinit
 # Function to edit current prompt (or previous one if the current is empty) in neovim
 function edit-command-in-nvim {
   local tmpfile=$(mktemp)
+  local marker="###CURSOR###"
 
   if [[ -z "$BUFFER" ]]; then
     BUFFER=$(fc -ln -1)
   fi
+
+  # Insert marker at cursor
+  local before=${BUFFER:0:$CURSOR}
+  local after=${BUFFER:$CURSOR}
+  local buffer_with_marker="${before}${marker}${after}"
 
   {
     echo "# Temporary Zsh command buffer"
@@ -105,10 +111,10 @@ function edit-command-in-nvim {
     echo "# To run the command after editing, save and quit (e.g., :wq)"
     echo "# Lines starting with # will be ignored when returning to the prompt"
     echo "# --------------------"
-    print -r -- "$BUFFER"
+    print -r -- "$buffer_with_marker"
   } > $tmpfile
 
-  nvim -c 'set filetype=zsh' -c 'normal! G$' $tmpfile
+  nvim -c 'set filetype=zsh' -c "/###CURSOR###/" -c 'normal! "_nd12l' "$tmpfile"
 
   local new_command=$(grep -v '^#' $tmpfile)
 
