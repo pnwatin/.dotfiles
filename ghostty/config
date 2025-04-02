@@ -12,6 +12,7 @@ window-padding-x = 10
 window-save-state = always
 
 # misc
+title = " "
 focus-follows-mouse = true
 quit-after-last-window-closed = true
 scrollback-limit = 100_000_000
