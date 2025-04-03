@@ -145,8 +145,6 @@ alias vim="nvim"
 alias v="nvim"
 alias cat="bat"
 alias g="git"
-alias q='exit'
-alias x='clear'
 alias man='MANWIDTH=$((COLUMNS > 80 ? 80 : COLUMNS)) man'
 
 # Keymaps
