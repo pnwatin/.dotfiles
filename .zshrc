@@ -159,5 +159,5 @@ bindkey -r '\e'
 [[ $- != *i* ]] && return
 
 if command -v tmux >/dev/null 2>&1 && [[ -z "$TMUX" ]]; then
-  tmux attach-session -t default || tmux new-session -s default -c $HOME]
+  tmux a || tmux
 fi
