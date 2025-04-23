@@ -93,7 +93,7 @@ autoload -Uz compinit && compinit
 
 # Function to edit current prompt (or previous one if the current is empty) in neovim
 function edit-command-in-nvim {
-  local tmpfile=$(mktemp)
+  local tmpfile="$PWD/.zsh-edit-command-$$.zsh"
 
   if [[ -z "$BUFFER" ]]; then
     BUFFER=$(fc -ln -1)
