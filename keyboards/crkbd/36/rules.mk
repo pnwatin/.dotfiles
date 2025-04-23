@@ -1,6 +1,0 @@
-AUTO_SHIFT_ENABLE = no
-CAPS_WORD_ENABLE = yes
-TAP_DANCE_ENABLE = yes
-CONVERT_TO = rp2040_ce
-SEND_STRING_ENABLE = yes
-SRC += features/achordion.c
