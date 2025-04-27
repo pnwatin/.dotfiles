@@ -153,7 +153,7 @@ untracked = cyan bold
 versiontag = v
 
 [sequence]
-editor = interactive-rebase-tool
+editor = nvim
 
 [tag]
 sort = version:refname # Sort tags as version numbers whenever applicable, so 1.10.2 is AFTER 1.2.0.
