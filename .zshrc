@@ -94,6 +94,10 @@ autoload -Uz compinit && compinit
 # Function to edit current prompt (or previous one if the current is empty) in neovim
 function edit-command-in-nvim {
   local tmpfile="$PWD/.zsh-edit-command-$$.zsh"
+  local runflag="$PWD/.zsh-edit-command-$$.run"
+  local mtime_before mtime_after
+  local new_command=""
+  local action="discard"  # enum: discard, load, run
 
   if [[ -z "$BUFFER" ]]; then
     BUFFER=$(fc -ln -1)
@@ -102,21 +106,57 @@ function edit-command-in-nvim {
   {
     echo "# Temporary Zsh command buffer"
     echo "# Edit this buffer to modify your command and save to update the prompt"
-    echo "# To run the command after editing, save and quit (e.g., :wq)"
-    echo "# Lines starting with # will be ignored when returning to the prompt"
+    echo "# To run the command press <Enter> in normal mode"
+    echo "# To load the command into your prompt after editing, save and quit (e.g., :wq)"
+    echo "# To discard, quit without saving (e.g., :q)"
+    echo "# Lines starting with # will be ignored"
     echo "# --------------------"
     print -r -- "$BUFFER"
-  } > $tmpfile
+  } > "$tmpfile"
 
-  nvim -c 'set filetype=zsh' -c 'normal! G$' $tmpfile
+  mtime_before=$(stat -f %m "$tmpfile")
 
-  local new_command=$(grep -v '^#' $tmpfile)
+  nvim \
+    -c 'set filetype=zsh' \
+    -c "function! SaveAndQuit()
+          write!
+          silent! execute '!touch $runflag'
+          qa!
+        endfunction" \
+    -c "nnoremap <silent> <CR> :call SaveAndQuit()<CR>" \
+    -c 'normal! G$' \
+    "$tmpfile" > /dev/tty
 
-  rm $tmpfile
+  if [[ -f "$tmpfile" ]]; then
+    mtime_after=$(stat -f %m "$tmpfile")
 
-  BUFFER="$new_command"
-  CURSOR=${#BUFFER}
-  zle redisplay
+    if (( mtime_after > mtime_before )); then
+      new_command=$(grep -v '^#' "$tmpfile")
+      BUFFER="$new_command"
+      CURSOR=${#BUFFER}
+      if [[ -f "$runflag" ]]; then
+        action="run"
+      else
+        action="load"
+      fi
+    fi
+  fi
+
+  rm -f "$tmpfile" "$runflag"
+
+  case "$action" in
+    run)
+      zle accept-line
+      ;;
+    load)
+      zle redisplay
+      ;;
+    discard|*)
+      BUFFER=""
+      CURSOR=0
+      zle redisplay
+      ;;
+  esac
 }
 zle -N edit-command-in-nvim
 
