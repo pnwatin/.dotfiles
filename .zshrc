@@ -180,6 +180,7 @@ alias v="nvim"
 alias cat="bat"
 alias g="git"
 alias man='MANWIDTH=$((COLUMNS > 80 ? 80 : COLUMNS)) man'
+alias o='open'
 
 # Keymaps
 bindkey "^[e" edit-command-in-nvim
