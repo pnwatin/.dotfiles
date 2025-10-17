@@ -41,6 +41,10 @@ keybind = cmd+ctrl+j=resize_split:down,40
 keybind = cmd+ctrl+e=equalize_splits
 keybind = cmd+space=toggle_split_zoom
 keybind = cmd+enter=toggle_split_zoom
+
+# reset
+keybind = cmd+d=unbind
+keybind = cmd+shift+d=unbind
 keybind = cmd+n=unbind
 keybind = cmd+t=unbind
 keybind = cmd+w=unbind
