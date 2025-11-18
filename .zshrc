@@ -12,6 +12,8 @@ export MANPAGER='nvim +Man!'
 
 # Source zsh plugins
 source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+zle_highlight=('paste:none')
+
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-completions
 
