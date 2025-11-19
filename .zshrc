@@ -185,6 +185,9 @@ alias man='MANWIDTH=$((COLUMNS > 80 ? 80 : COLUMNS)) man'
 alias o='open'
 
 # Keymaps
+# Ensure backspace works correctly across lines
+bindkey '^?' backward-delete-char
+bindkey '^H' backward-delete-char
 bindkey "^[e" edit-command-in-nvim
 bindkey "^E" end-of-line
 bindkey "^Z" vim-ctrl-z
