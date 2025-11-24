@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+tmp=$(mktemp /tmp/tmux-scrollback.XXXX)
+
+tmux capture-pane -pS -20000 > "$tmp"
+
+sed -i '' -e :a -e '/^[[:space:]]*$/{$d;N;ba' -e '}' "$tmp" 2>/dev/null \
+  || sed -i -e :a -e '/^[[:space:]]*$/{$d;N;ba' -e '}' "$tmp" 2>/dev/null
+
+tmux neww "nvim -c 'normal! G$' \"$tmp\"; rm -f \"$tmp\""
