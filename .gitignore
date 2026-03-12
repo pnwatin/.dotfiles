@@ -2,14 +2,11 @@
 
 !bat/
 !bin/
-!borders/
 !btop/
 !fsh/
 !ghostty/
 !git-delta/
 !lazygit/
-!kitty/
-!kanata/
 !nvim/
 !skhd/
 !.zshrc
@@ -18,4 +15,3 @@
 !.gitconfig
 !.gitignore
 !.gitmodules
-!scripts/
