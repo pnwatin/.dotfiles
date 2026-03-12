@@ -3,7 +3,7 @@ ctrl - 0x21 : skhd -k "escape"
 
 # open applications
 alt - t : open -a "Ghostty"
-alt - b : open -a "Zen Browser"
+alt - b : open -a "Zen"
 alt - d : open -a "Discord"
 alt - s : open -a "Slack"
 
