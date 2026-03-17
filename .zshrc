@@ -174,14 +174,16 @@ zle -N vim-ctrl-z
 
 # Aliases
 alias gg='lazygit'
-alias ls='lsd'
-alias l='lsd -lAh'
+alias l='lsd -l'
+alias la='lsd -lA'
+alias lt='lsd --tree'
 alias vim="nvim"
 alias v="nvim"
 alias cat="bat"
 alias g="git"
 alias man='MANWIDTH=$((COLUMNS > 80 ? 80 : COLUMNS)) man'
 alias o='open'
+alias :q='exit'
 
 # Keymaps
 # Ensure backspace works correctly across lines
