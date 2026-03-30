@@ -2,6 +2,7 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+export LS_COLORS="$(vivid generate catppuccin-mocha)"
 export EDITOR='nvim'
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
