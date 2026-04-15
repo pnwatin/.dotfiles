@@ -185,6 +185,7 @@ alias g="git"
 alias man='MANWIDTH=$((COLUMNS > 80 ? 80 : COLUMNS)) man'
 alias o='open'
 alias :q='exit'
+alias bl='blueutil'
 
 # Keymaps
 # Ensure backspace works correctly across lines
