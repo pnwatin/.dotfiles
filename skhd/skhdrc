@@ -6,6 +6,7 @@ alt - t : open -a "Ghostty"
 alt - b : open -a "Zen"
 alt - d : open -a "Discord"
 alt - s : open -a "Slack"
+alt - f : open -a "Finder"
 
 # use vim style delete previous word every where
 ctrl - w -> [ 
