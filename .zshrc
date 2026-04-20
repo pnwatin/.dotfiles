@@ -180,6 +180,9 @@ alias la='lsd -lA'
 alias lt='lsd --tree'
 alias vim="nvim"
 alias v="nvim"
+alias nv="NVIM_APPNAME=mini-nvim nvim"
+alias oc="opencode"
+alias occ="opencode --continue"
 alias cat="bat"
 alias g="git"
 alias man='MANWIDTH=$((COLUMNS > 80 ? 80 : COLUMNS)) man'
