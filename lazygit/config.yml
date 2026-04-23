@@ -1,6 +1,6 @@
 os:
- edit: '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "<C-\\><C-n><Cmd>close<CR><Cmd>drop {{filename}}<CR>")'
- editAtLine: '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "<C-\\><C-n><Cmd>close<CR><Cmd>drop +{{line}} {{filename}}<CR>")'
+ edit: "[ -z \"$NVIM\" ] && (nvim -- {{filename}}) || (nvim --server \"$NVIM\" --remote-send '<C-\\><C-n><Cmd>close<CR><Cmd>execute \"drop \" .. fnameescape({{filename}})<CR>')"
+ editAtLine: "[ -z \"$NVIM\" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server \"$NVIM\" --remote-send '<C-\\><C-n><Cmd>close<CR><Cmd>execute \"drop +{{line}} \" .. fnameescape({{filename}})<CR>')"
 notARepository: "skip"
 promptToReturnFromSubprocess: false
 git:
