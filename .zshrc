@@ -93,10 +93,11 @@ eval "$(fnm env --use-on-cd)"
 # Load completions
 autoload -Uz compinit && compinit
 
-# Function to edit current prompt (or previous one if the current is empty) in neovim
-function edit-command-in-nvim {
-  local tmpfile="$PWD/.zsh-edit-command-$$.zsh"
-  local runflag="$PWD/.zsh-edit-command-$$.run"
+
+# Edit current prompt (or previous one if the current is empty) in neovim
+function edit-prompt () {
+  local tmpfile="$PWD/.zsh-edit-prompt-$$.zsh"
+  local runflag="$PWD/.zsh-edit-prompt-$$.run"
   local mtime_before mtime_after
   local new_command=""
   local action="discard"  # enum: discard, load, run
@@ -160,9 +161,9 @@ function edit-command-in-nvim {
       ;;
   esac
 }
-zle -N edit-command-in-nvim
+zle -N edit-prompt
 
-# Function to suspend vim
+# Suspend vim
 function vim-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
@@ -172,6 +173,11 @@ function vim-ctrl-z () {
   fi
 }
 zle -N vim-ctrl-z
+
+# Cat and copy
+function ccat() {
+  bat "$@" | pbcopy
+}
 
 # Aliases
 alias gg='lazygit'
@@ -193,7 +199,7 @@ alias bl='blueutil'
 # Ensure backspace works correctly across lines
 bindkey '^?' backward-delete-char
 bindkey '^H' backward-delete-char
-bindkey "^[e" edit-command-in-nvim
+bindkey "^[e" edit-prompt
 bindkey "^E" end-of-line
 bindkey "^Z" vim-ctrl-z
 bindkey "^F" forward-word
