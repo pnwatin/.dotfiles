@@ -2,6 +2,9 @@
 theme = Catppuccin Mocha
 background = #11111b
 
+# icon
+macos-icon = retro
+
 # fonts
 font-family = JetBrainsMono Nerd Font Mono
 font-size = 18
