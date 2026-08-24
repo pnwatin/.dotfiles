@@ -188,6 +188,8 @@ alias vim="nvim"
 alias v="nvim"
 alias oc="opencode"
 alias occ="opencode --continue"
+alias c="claude"
+alias cc="claude --continue"
 alias cat="bat"
 alias g="git"
 alias man='MANWIDTH=$((COLUMNS > 80 ? 80 : COLUMNS)) man'
