@@ -196,6 +196,7 @@ alias man='MANWIDTH=$((COLUMNS > 80 ? 80 : COLUMNS)) man'
 alias o='open'
 alias :q='exit'
 alias bl='blueutil'
+alias ..="cd .."
 
 # Keymaps
 # Ensure backspace works correctly across lines
