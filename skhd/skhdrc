@@ -2,7 +2,7 @@
 ctrl - 0x21 : skhd -k "escape"
 
 # open applications
-alt - t : open -a "Ghostty"
+alt - t : open -a "Rex Beta"
 alt - b : open -a "Zen"
 alt - d : open -a "Discord"
 alt - s : open -a "Slack"
@@ -20,6 +20,7 @@ ctrl - w -> [
 ctrl - f -> [ 
   "kitty" : ~
   "Ghostty" : ~
+  "Rex Beta": ~
   *       : skhd -k "alt - right"
 ]
 
@@ -27,5 +28,6 @@ ctrl - f -> [
 ctrl - u -> [ 
   "kitty" : ~
   "Ghostty" : ~
+  "Rex Beta": ~
   *       : skhd -k "cmd - backspace"
 ]

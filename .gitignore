@@ -9,6 +9,7 @@
 !lazygit/
 !lsd
 !nvim/
+!rex/
 !skhd/
 !.zshrc
 !starship.toml

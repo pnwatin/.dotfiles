@@ -210,8 +210,3 @@ bindkey "^N" history-search-forward
 bindkey "^P" history-search-backward
 bindkey -r '\e'
 
-[[ $- != *i* ]] && return
-
-if command -v tmux >/dev/null 2>&1 && [[ -z "$TMUX" ]]; then
-  tmux a || tmux
-fi
