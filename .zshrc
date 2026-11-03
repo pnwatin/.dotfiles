@@ -1,4 +1,5 @@
-if [[ -f "/opt/homebrew/bin/brew" ]] then
+# .zprofile already runs brew shellenv for login shells; only run it if missing
+if [[ -z "$HOMEBREW_PREFIX" && -f "/opt/homebrew/bin/brew" ]] then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
@@ -11,11 +12,11 @@ export PATH="$HOME/.local/bin:$PATH"
 export MANPAGER='nvim +Man!'
 
 # Source zsh plugins
-source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 zle_highlight=('paste:none')
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-completions
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fpath=($HOMEBREW_PREFIX/share/zsh-completions $fpath)
 
 # History
 HISTSIZE=10000
