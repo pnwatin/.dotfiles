@@ -13,7 +13,6 @@
 !skhd/
 !.zshrc
 !starship.toml
-!.tmux.conf
 !.gitconfig
 !.gitignore
 !.gitmodules
