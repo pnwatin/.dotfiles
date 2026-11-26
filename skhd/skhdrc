@@ -13,6 +13,7 @@ alt - m : open -a "Mail"
 ctrl - w -> [ 
   "kitty" : ~
   "Ghostty" : ~
+  "Rex" : ~
   *       : skhd -k "alt - backspace"
 ]
 
@@ -20,7 +21,7 @@ ctrl - w -> [
 ctrl - f -> [ 
   "kitty" : ~
   "Ghostty" : ~
-  "Rex Beta": ~
+  "Rex" : ~
   *       : skhd -k "alt - right"
 ]
 
@@ -28,6 +29,6 @@ ctrl - f -> [
 ctrl - u -> [ 
   "kitty" : ~
   "Ghostty" : ~
-  "Rex Beta": ~
+  "Rex": ~
   *       : skhd -k "cmd - backspace"
 ]
