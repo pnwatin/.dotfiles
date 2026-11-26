@@ -1,0 +1,15 @@
+{
+  "linkHintCharacters": "shtarenigycpwf",
+  "settingsVersion": "2.3",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\nbackground: #11111b;\nborder: 1px solid #6c7086;\npadding: 4px;\nborder-radius: 4px;\n}\n\ndiv > .vimiumHintMarker span {\ncolor: #fab387;\nfont-weight: 100;\nfont-family: 'JetBrainsMono Nerd Font Mono';\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\nfont-weight: 700;\ncolor: #a6e3a1;\n}",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://monkeytype.com/*"
+    }
+  ]
+}
